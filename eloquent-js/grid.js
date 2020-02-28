@@ -1,7 +1,7 @@
 function grid(string, lines) {
-    let str = string + ' ';
+    let str = '';
     for (let i = 1; i < lines; i++){
-        str += str;
+        str += string + ' ';
     }
 
     // print lines
@@ -10,4 +10,4 @@ function grid(string, lines) {
     }
 };
 
-grid('#', 5);
+grid('#', 3);
