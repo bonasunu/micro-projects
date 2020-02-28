@@ -10,4 +10,4 @@ function grid(string, lines) {
     }
 };
 
-grid('#', 5);
+grid('#', 8);
