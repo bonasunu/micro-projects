@@ -8,3 +8,5 @@ function sumArray(num1, num2){
 }
 
 sumArray(1, 10);
+
+// Function that takes 3 arguments and returns array. 
