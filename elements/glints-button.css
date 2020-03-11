@@ -12,7 +12,13 @@ button {
     cursor: pointer;
 }
 
-button:active {
+button:hover {
     box-shadow: 0.2em 0.2em black;
-    transform: ;
+    transform: translate(0.1em, 0.1em);
+}
+
+button:active {
+    background-color: black;
+    color: white;
+    box-shadow: none;
 }
