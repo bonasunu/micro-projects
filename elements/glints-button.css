@@ -10,6 +10,7 @@
     box-shadow: 0.5em 0.5em red;
     border: none;
     cursor: pointer;
+    transition: box-shadow 0.1s ease-in-out;
 }
 
 .button:hover {
