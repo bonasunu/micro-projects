@@ -1,4 +1,4 @@
-button {
+.button {
     color: #000000;
     background-color: yellow;
     margin: 2em;
@@ -12,13 +12,13 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+.button:hover {
     box-shadow: 0.2em 0.2em black;
     transition: box-shadow 0.1s ease-in-out;
     transform: translate(0.1em, 0.1em);
 }
 
-button:active {
+.button:active {
     background-color: black;
     color: white;
     box-shadow: none;
