@@ -1,0 +1,1 @@
+Create bare-bones HTML5 page to solidify HTML5 skills
