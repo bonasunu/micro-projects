@@ -1,0 +1,34 @@
+body {
+    background-color: bisque;
+}
+
+h1, h2 {
+    color: aqua;
+}
+
+ol li {
+    color: red;
+}
+
+ol > li {
+    color: blue;
+}
+
+input[type=text] {
+    background-color: greenyellow;
+}
+
+button {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+a::before {
+    content: "Click here ";
+
+}
+
+p::selection {
+    color: red;
+    background-color: yellow;
+}
