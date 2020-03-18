@@ -1,7 +1,7 @@
 .container {
     display: flex;
     flex-flow: row wrap;
-    justify-content: center;
+    
 }
 
 .container > div {
@@ -11,5 +11,5 @@
     background-color: lightpink;
     color: midnightblue;
     width: 200px;
-    
+    flex-grow: 1;
 }
