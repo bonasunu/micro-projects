@@ -1,0 +1,13 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.container > div {
+    padding: 20px;
+    margin: 20px;
+    text-align: center;
+    background-color: lightpink;
+    color: midnightblue;
+    width: 200px;
+}
