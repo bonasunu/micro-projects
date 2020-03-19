@@ -2,5 +2,18 @@ $color: #193549;
 %fonts {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 2em;
+    color: whitesmoke;
 }
 
+body {
+    background-color: $color;
+}
+
+p {
+    @extend %fonts;
+    padding: 2px;
+}
+
+img {
+    margin: auto;
+}
