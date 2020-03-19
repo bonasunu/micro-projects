@@ -4,6 +4,10 @@ $color: #193549;
     font-size: 2em;
     color: whitesmoke;
 }
+%responsive-img {
+    max-width: 100%;
+    height: auto;
+}
 
 body {
     background-color: $color;
@@ -15,5 +19,6 @@ p {
 }
 
 img {
+    @extend %responsive-img;
     margin: auto;
 }
