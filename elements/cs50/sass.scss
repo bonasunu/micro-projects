@@ -1,8 +1,8 @@
-$color: #193549;
+$color: #FFD15E;
 %fonts {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 2em;
-    color: whitesmoke;
+    font-size: 1rem;
+    color: #314d81;
 }
 %responsive-img {
     max-width: 100%;
@@ -20,5 +20,11 @@ p {
 
 img {
     @extend %responsive-img;
+    display: block;
     margin: auto;
+}
+
+h2 {
+    color: #314d81;
+    text-align: center;
 }
