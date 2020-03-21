@@ -1,0 +1,1 @@
+This file is created for testing Responsive Web Design
