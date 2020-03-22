@@ -1,4 +1,4 @@
-x = input()
+x = 88
 
 if x > 0:
     print("x is positive")
