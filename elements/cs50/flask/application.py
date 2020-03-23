@@ -2,6 +2,6 @@ from flask import Flask
 
 app = Flask(__name__)
 
-@app.route("/")
+@app.route("/<string:name>")
 def index():
-    return "Heyya World!"
+    return f"Heyya {name}!"
