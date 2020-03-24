@@ -3,13 +3,27 @@
 {% block main %}
 <section class="section">
     <div class="container">
-        <h1>Hogwart Sorting Hat</h1>
+        <h1 class="title">Hogwart Sorting Hat</h1>
         <img src="static/sorting-hat.jpg" alt="Sorting Hat">
         <h3>Enter your first name and last name. Let the Hat sorts you..</h3>
         <form action="">
-            <label for="first-name">Your first name</label><input type="text" name="first-name">
-            <label for="last-name">Your last name</label><input type="text" name="last-name">
-            <button>See your House</button>
+            <div class="field">
+                <label for="first-name" class="label">Your first name</label>
+                <div class="control">
+                    <input type="text" name="first-name" class="input">
+                </div>
+            </div>
+            <div class="field">
+                <label for="last-name" class="label">Your last name</label>
+                <div class="control">
+                    <input type="text" name="last-name" class="input">
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <button class="button is-primary">See your House</button>
+                </div>
+            </div>
         </form>
     </div>
 </section>
