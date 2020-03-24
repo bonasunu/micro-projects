@@ -7,12 +7,20 @@
         <meta  name="Author" content="Bonaventura Sunu">
         <meta name="Description" content="Hogwarts Sorting Hat">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+        <link rel="stylesheet" href="main.css">
     </head>
     <body>
-        {% block main %}
-        {% endblock %}
-        <footer>
- 
+        <section class="section">
+            {% block main %}
+            {% endblock %}
+        </section>
+        <footer class="footer">
+            <div class="container">
+                <div class="content has-text-centered">
+                    Project by Bonaventura Sunu. Images from <a href="http://clipart-library.com/free/hogwarts-crest-silhouette.html"
+                        target="blank">Clipart Library</a>
+                </div>
+            </div>
         </footer>
     </body>
 </html>
