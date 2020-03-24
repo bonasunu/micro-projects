@@ -2,5 +2,11 @@
 
 {% block main %}
     <h1>Hogwart Sorting Hat</h1>
-    <img src="Static/sorting-hat.jpg" alt="Sorting Hat">
+    <img src="static/sorting-hat.jpg" alt="Sorting Hat">
+    <h3>Enter your first name and last name. Let the Hat sorts you..</h3>
+    <form action="">
+        <label for="first-name">Your first name</label><input type="text" name="first-name">
+        <label for="last-name">Your last name</label><input type="text" name="last-name">
+        <button>See your House</button>
+    </form>
 {% endblock %}
