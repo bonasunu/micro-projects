@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, session
-from flask_session import session
+from flask_session import Session
 
 app = Flask(__name__)
 
@@ -11,8 +11,10 @@ Session(app)
 def index():
     if session.get("notes") is None:
         session["notes"] = []
-    if request.methods == "POST"
+    if request.method == "POST":
         note = request.form.get("note")
-        sessionp["notes"].append(note)
+        session["notes"].append(note)
 
-    render_template(index.html, notes=session["notes"])
+    return render_template("index.html", notes=session["notes"])
+
+#first flask
