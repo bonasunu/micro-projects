@@ -24,6 +24,10 @@ def slytherin():
 def hufflepuff():
     return render_template("hufflepuff.html")
 
+@app.route("/ravenclaw")
+def ravenclaw():
+    return render_template("ravenclaw.html")
+
 @app.route("/planes", methods=['GET'])
 def plane():
     flights = db.execute("SELECT origin, destination, duration FROM flights").fetchall()
