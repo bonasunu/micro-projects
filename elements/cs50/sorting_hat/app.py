@@ -16,6 +16,10 @@ def index():
 def gryffindor():
     return render_template("gryffindor.html")
 
+@app.route("/slytherin")
+def slytherin():
+    return render_template("slytherin.html")
+
 @app.route("/planes", methods=['GET'])
 def plane():
     flights = db.execute("SELECT origin, destination, duration FROM flights").fetchall()
