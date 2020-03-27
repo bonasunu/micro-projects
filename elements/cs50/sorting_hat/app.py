@@ -20,6 +20,10 @@ def gryffindor():
 def slytherin():
     return render_template("slytherin.html")
 
+@app.route("/hufflepuff")
+def hufflepuff():
+    return render_template("hufflepuff.html")
+
 @app.route("/planes", methods=['GET'])
 def plane():
     flights = db.execute("SELECT origin, destination, duration FROM flights").fetchall()
