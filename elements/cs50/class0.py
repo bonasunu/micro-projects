@@ -8,3 +8,5 @@ class Flight:
 # Create Flight
 f = Flight('New York', 'Paris', 540)
 
+# Change the value of property
+f.duration += 10
