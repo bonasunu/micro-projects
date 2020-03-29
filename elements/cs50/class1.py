@@ -13,3 +13,5 @@ class Flight:
 def main():
     f1 = Flight('New York', 'Paris', 540)
     f1.print_info()
+
+main()
