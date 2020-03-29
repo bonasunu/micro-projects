@@ -10,3 +10,8 @@ f = Flight('New York', 'Paris', 540)
 
 # Change the value of property
 f.duration += 10
+
+# Print details about flight
+print(f.origin)
+print(f.destination)
+print(f.duration)
