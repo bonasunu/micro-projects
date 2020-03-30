@@ -33,3 +33,18 @@ class Flight:
     def add_passenger(self, p):
         self.passengers.append(p)
         p.flight_id = self.id
+
+
+# Trying above code
+# Create flight
+f1 = Flight('New York', 'Paris', 540)
+
+# Create passenger
+alice = Passenger('Alice')
+bob = Passenger('Bob')
+
+# Add passenger
+f1.add_passenger(alice)
+f1.add_passenger(bob)
+
+f1.print_info()
