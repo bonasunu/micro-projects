@@ -9,7 +9,7 @@ class Flight:
         Flight.counter += 1
 
         # Keep track of passenger
-        self.passenger = []
+        self.passengers = []
 
         # Details about flight
         self.origin = origin
@@ -26,4 +26,6 @@ class Flight:
         for passenger in self.passengers:
             print(f"{passenger.name}")
 
-    
+    def add_passenger(self, p):
+        self.passengers.append(p)
+        p.flight_id = self.id
