@@ -6,6 +6,14 @@ class Flight:
         
         # Keep track of id number
         self.id = Flight.counter
-        Flight.counter ++ 1
+        Flight.counter += 1
 
-        
+        # Keep track of passenger
+        self.passenger = []
+
+        # Details about flight
+        self.origin = origin
+        self.destination = destination
+        self.duration = duration
+
+    
