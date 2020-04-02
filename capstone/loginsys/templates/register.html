@@ -7,12 +7,28 @@
     <h1 class="title has-text-centered">Login Sys</h1>
     <h3 class="subtitle has-text-centered">Register here.</h3>
     <div class="columns is-centered">
-        <div class="column is-half">
+        <div class="column is-one-quarter">
             <form action="/register" method="POST">
                 {{ form.hidden_tag() }}
-                {{ wtf.form_field(form.fullname) }}
-                {{ wtf.form_field(form.username) }}
-                {{ wtf.form_field(form.password) }}
+                <div class="field">
+                    {{ form.hidden_tag() }}
+                    {{ form.fullname.label(class_='label') }}
+                    <div class="control">
+                        {{ form.fullname(class_='input') }}
+                    </div>
+                </div>
+                <div class="field">
+                    {{ form.username.label(class_='label') }}
+                    <div class="control">
+                        {{ form.username(class_='input') }}
+                    </div>
+                </div>
+                <div class="field">
+                    {{ form.password.label(class_='label') }}
+                    <div class="control">
+                        {{ form.password(class_='input') }}
+                    </div>
+                </div>
                 <div class="field has-addons has-addons-centered">
                     <div class="control">
                         <button class="button is-primary">Register</button>
