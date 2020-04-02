@@ -1,5 +1,4 @@
 {% extends "layout.html" %}
-{% import "bootstrap/wtf.html" as wtf %}
 
 {% block main %}
 
@@ -7,12 +6,27 @@
     <h1 class="title has-text-centered">Login Sys</h1>
     <h3 class="subtitle has-text-centered">Enter your login details here.</h3>
     <div class="columns is-centered">
-        <div class="column is-half">
+        <div class="column is-one-quarter">
             <form action="/login" method="POST">
-                {{ form.hidden_tag() }}
-                {{ wtf.form_field(form.username) }}
-                {{ wtf.form_field(form.password) }}
-                {{ wtf.form_field(form.remember) }}
+                <div class="field">
+                    {{ form.hidden_tag() }}
+                    {{ form.username.label(class_='label') }}
+                    <div class="control">
+                        {{ form.username(class_='input') }}
+                    </div>
+                </div>
+                <div class="field">
+                    {{ form.password.label(class_='label') }}
+                    <div class="control">
+                        {{ form.password(class_='input') }}
+                    </div>
+                </div>
+                <div class="field">
+                    {{ form.remember.label(class_='label') }}
+                    <div class="control">
+                        {{ form.remember }}
+                    </div>
+                </div>
                 <div class="field has-addons has-addons-centered">
                     <div class="control">
                         <button class="button is-primary">Login</button>
