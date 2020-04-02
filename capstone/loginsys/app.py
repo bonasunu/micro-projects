@@ -21,6 +21,6 @@ def logout():
     return redirect("/")
 
 @app.route("/register")
-def register()
+def register():
     return render_template("register.html")
     
