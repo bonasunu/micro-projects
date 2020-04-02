@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+<div class="container">
+    <h1 class="title has-text-centered">Login Sys</h1>
+    <h3 class="subtitle has-text-centered">Enter your login details here.</h3>
+    <div class="columns is-centered">
+        <div class="column is-half">
+            <form action="">
+                <div class="field">
+                    <label for="username" class="label">Your username</label>
+                    <div class="control">
+                        <input type="text" name="username" class="input">
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="password" class="label">Your password</label>
+                    <div class="control">
+                        <input type="password" name="password" class="input">
+                    </div>
+                </div>
+                <div class="field has-addons has-addons-centered">
+                    <div class="control">
+                        <button class="button is-primary">Login</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
