@@ -11,14 +11,15 @@ app.config['SECRET_KEY'] = 'thisissupposedtobesecretkey'
 Bootstrap(app)
 
 class LoginForm(FlaskForm):
-    username = StringField('username', validators=[InputRequired(), Length(min=4, max=15)])
-    password = PasswordField('password', validators=[InputRequired(), Length(min=8, max=80)])
-    remember = BooleanField('remember me')
+    # Don't forget to implement invaliud form error meassages
+    username = StringField('Username', validators=[InputRequired(), Length(min=4, max=15, message=('Your username is too short.'))])
+    password = PasswordField('Password', validators=[InputRequired(), Length(min=8, max=80, message=('Your password is too short.'))])
+    remember = BooleanField('Remember me')
 
 class RegisterForm(FlaskForm):
-    fullname = StringField('fullname', validators=[InputRequired(), Length(min=1, max=15)])
-    username = StringField('username', validators=[InputRequired(), Length(min=4, max=15)])
-    password = PasswordField('password', validators=[InputRequired(), Length(min=8, max=80)])
+    fullname = StringField('Fullname', validators=[InputRequired(), Length(min=1, max=15)])
+    username = StringField('Username', validators=[InputRequired(), Length(min=4, max=15)])
+    password = PasswordField('Password', validators=[InputRequired(), Length(min=8, max=80)])
 
 @app.route("/")
 def index():
