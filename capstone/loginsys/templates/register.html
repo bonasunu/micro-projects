@@ -1,4 +1,5 @@
 {% extends "layout.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
 
 {% block main %}
 
@@ -7,25 +8,11 @@
     <h3 class="subtitle has-text-centered">Register here.</h3>
     <div class="columns is-centered">
         <div class="column is-half">
-            <form action="">
-                <div class="field">
-                    <label for="fullname" class="label">Your full name</label>
-                    <div class="control">
-                        <input type="text" name="fullname" class="input">
-                    </div>
-                </div>
-                <div class="field">
-                    <label for="username" class="label">Your username</label>
-                    <div class="control">
-                        <input type="text" name="username" class="input">
-                    </div>
-                </div>
-                <div class="field">
-                    <label for="password" class="label">Your password</label>
-                    <div class="control">
-                        <input type="password" name="password" class="input">
-                    </div>
-                </div>
+            <form action="/register" method="POST">
+                {{ form.hidden_tag() }}
+                {{ wtf.form_field(form.fullname) }}
+                {{ wtf.form_field(form.username) }}
+                {{ wtf.form_field(form.password) }}
                 <div class="field has-addons has-addons-centered">
                     <div class="control">
                         <button class="button is-primary">Register</button>
