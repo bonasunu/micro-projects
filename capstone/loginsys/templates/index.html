@@ -4,28 +4,11 @@
 
 <div class="container">
     <h1 class="title has-text-centered">Login Sys</h1>
-    <h3 class="subtitle has-text-centered">Enter your first name and last name.</h3>
+    <h3 class="subtitle has-text-centered">Welcome!</h3>
     <div class="columns is-centered">
         <div class="column is-half">
-            <form action="">
-                <div class="field">
-                    <label for="first-name" class="label">Your first name</label>
-                    <div class="control">
-                        <input type="text" name="first-name" class="input">
-                    </div>
-                </div>
-                <div class="field">
-                    <label for="last-name" class="label">Your last name</label>
-                    <div class="control">
-                        <input type="text" name="last-name" class="input">
-                    </div>
-                </div>
-                <div class="field has-addons has-addons-centered">
-                    <div class="control">
-                        <button class="button is-primary">Login</button>
-                    </div>
-                </div>
-            </form>
+            <a href="{{ url_for('login') }}">Login</a>
+            <a href="{{ url_for('register') }}">Register</a>
         </div>
     </div>
 </div>
