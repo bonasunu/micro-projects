@@ -4,6 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To do Implementation</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // by deafult, submit button is disabled
+            document.querySelector('#submit').disabled = true;
+
+            // enable button if there is text input
+            document.querySelector('#task').onkeyup = () => {
+                if (document.querySelector('#task').value.length > 0)
+                    document.querySelector('#submit').disabled = false;
+                else
+                    document.querySelector('#submit').disabled = true;
+            };
+
+            document.querySelector('#new-task').onsubmit = () => {
+                
+
+                // create new item forlist
+                const li = document.createElement('li');
+                li.innerHTML = document.querySelector('#task').value;
+
+                // add new item to task list
+                document.querySelector('#tasks').append(li);
+
+                // clear input field
+                document.querySelector('#task').value = '';
+                document.querySelector('#submit').disabled = true;
+
+                return false;
+            };
+        });
+    </script>
 </head>
 <body>
     <h1>Tasks</h1>
@@ -12,7 +43,7 @@
     </ul>
     <form id="new-task">
         <input type="text" id="task">
-        <input type="submit">
+        <input type="submit" id="submit">
     </form>
 </body>
 </html>
