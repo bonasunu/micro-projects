@@ -1,0 +1,31 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+section {
+    flex: 1;
+}
+.images {
+    border-radius: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px;
+    max-width: 50%;
+    height: auto;
+}
+
+h1 {
+    padding-top: 3rem;
+}
+
+.link {
+    color: #00D1B2;
+}
+
+.link:hover {
+    background-color: #00D1B2;
+    color: white;
+}

@@ -1,6 +1,6 @@
 import requests
 
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, render_template, url_for
 
 app = Flask(__name__)
 
@@ -13,14 +13,14 @@ def convert():
     
     # Query for currency exchange rate
     currency = request.form.get('currency')
-    res = requests.get("http://data.fixer.io/api/latest",
+    res = requests.get("https://api.fixer.io/api/latest",
                      params={"base": "USD", "symbols": currency})
 
     # Make sure request succeeded
     if res.status_code != 200:
         return jsonify({"success": False})
 
-    data =res.json()
+    data = res.json()
     if currency not in data["rates"]:
         return jsonify({"success": False})
 
