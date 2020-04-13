@@ -20,6 +20,13 @@
             });
         });
 
+        // Update text on popping state
+        window.onpopstate = e => {
+            const data = e.state;
+            document.title = data.title;
+            document.querySelector('#body').innerHTML = data.text;
+        };
+
         // Renders contents of new page in main view.
         function load_page(name) {
             const request = new XMLHttpRequest();
@@ -30,7 +37,7 @@
 
                 // Push state to URL.
                 document.title = name;
-                history.pushState(null, name, name);
+                history.pushState({'title': name, 'text': response}, name, name);
             };
             request.send();
         }
