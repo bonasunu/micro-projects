@@ -21,7 +21,7 @@
         let counter = 1;
 
         // Load posts 20 at a time
-        count quantity = 20;
+        const quantity = 20;
 
         // When DOM loads, render the first 20 posts
         document.addEventListener('DOMContentLoaded', load);
@@ -70,6 +70,7 @@
             // Add new post to DOM
             document.querySelector('#posts').append(post);
         };
+        
     </script>
 </head>
 <body>
