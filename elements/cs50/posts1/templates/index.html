@@ -62,6 +62,7 @@
 
         // Add a new post with given contents to DOM
         function add_post(contents) {
+            
             // Create new post
             const post = document.createElement('div');
             post.className = 'post';
@@ -74,7 +75,7 @@
             post.append(hide);
 
             // When hide button is clicked, remove post
-            hide.oneclick = function() {
+            hide.onclick = function() {
                 this.parentElement.remove();
             };
 
