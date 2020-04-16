@@ -1,5 +1,5 @@
-from flask import Flask, jsonify, render_template, request
 import time
+from flask import Flask, jsonify, render_template, request
 
 app = Flask(__name__)
 
@@ -12,7 +12,7 @@ def posts():
 
     # Get start and end point for posts to generate
     start = int(request.form.get("start") or 0)
-    end = int(request.form.get("end") or (start + 0))
+    end = int(request.form.get("end") or (start + 9))
 
     # Generate list of posts
     data = []
