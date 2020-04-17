@@ -1,20 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <style>
-        li {
-            line-height: 30px;
-        }
-    
-        img {
-            height: 30px;
-            vertical-align: middle;
-        }
-    </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dice</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+    <script id="result" type="text/template">
+
+    </script>
     <script>
         // Template for roll result
         const template = Handlebars.compile("<li>You rolled a {{ value }}</li>");
