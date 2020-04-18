@@ -6,7 +6,13 @@
     <title>Dice</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
     <script id="result" type="text/template">
-
+        <li>
+            You rolled:
+            {{#each values}}
+                <img src="img/{{ this }}.png" alt="{{ this }}" title="{{ this }}">
+            {{/each}}
+            (Total: {{ total }})
+        </li>
     </script>
     <script>
         // Template for roll result
