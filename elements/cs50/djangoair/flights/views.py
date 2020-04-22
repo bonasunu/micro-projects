@@ -16,4 +16,8 @@ def flight(request):
     except Flight.DoesNotExist:
         raise Http404("Flight does not exist")
 
-    
+    context = {
+        "flight": flight,
+    }
+
+    return render(request, "flights/flight.html", context)
