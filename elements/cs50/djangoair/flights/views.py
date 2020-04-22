@@ -12,7 +12,7 @@ def index(request):
 
 def flight(request):
     try:
-        flight = Flight.objects.get(pk=flight_id)
+        flight = Flight.objects.get(pk=flight.id)
     except Flight.DoesNotExist:
         raise Http404("Flight does not exist")
 
