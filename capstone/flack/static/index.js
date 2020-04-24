@@ -14,4 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     });
 
+    document.querySelector('#deleteData').onClick = () => {localStorage.clear()};
+
 });
