@@ -9,15 +9,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
         document.querySelector('#hello').append('Connected');
         if (!localStorage.getItem('username')) {
-            localStorage.setItem('username', 'Bonaventura');
+            document.querySelector('#form').style.visibility = 'visible';
+            document.querySelector('#form').addEventListener('submit', () => {
+                let user = document.querySelector('#userInput').value;
+                localStorage.setItem('username', user);
+            });
+            
+        }
+        else {
+            document.querySelector('#form').style.visibility = 'hidden';
+            const h2 = document.createElement('h2');
+            h2Value = localStorage.getItem('username');
+            h2.innerHTML = 'Hello ' + h2Value;
+            document.querySelector('#hello').append(h2);
         };
 
-        const h2 = document.createElement('h2');
-        h2.innerHTML = `Hello ${localStorage.getItem('username')}!`;
-        document.querySelector('#hello').append(h2);
     });
 
-    // Delete data
+    // Delete data on localStorage
     document.querySelector('button').addEventListener('click', () => {
         localStorage.clear();
         while (document.querySelector('#hello').firstChild) {
