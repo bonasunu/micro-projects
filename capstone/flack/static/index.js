@@ -25,6 +25,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     });
 
+    socket.on('create channel', () => {
+        document.querySelector('#createChannel').addEventListener('submit', () => {
+            let channelName = document.querySelector('#channelName').value;
+            socket.emit('add channel', {'channelName': channelName});
+        });
+    });
+
     // Delete data on localStorage
     document.querySelector('button').addEventListener('click', () => {
         localStorage.clear();
