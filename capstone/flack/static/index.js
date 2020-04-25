@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Check if user exist when connected. Otherwise, call function to create it
     socket.on('connect', () => {
 
-        document.querySelector('#hello').append('Connected');
         if (!localStorage.getItem('username')) {
             document.querySelector('#form').style.visibility = 'visible';
             document.querySelector('#form').addEventListener('submit', () => {
