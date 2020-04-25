@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function createUser() {
 
         // To do - Implement Local Storage
+
+        // Jsonify
         if (!localStorage.getItem('user')) {
     
             var userInput = prompt("Input your username")
