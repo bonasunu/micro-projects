@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.querySelector('#hello').append(h2);
         };
 
+        // Create channel and add to channelList in app.py via "add channel" event
         document.querySelector('#createChannel').addEventListener('submit', () => {
             let chName = document.querySelector('#channelName').value;
             socket.emit('add channel', {'chName': chName});
