@@ -23,13 +23,11 @@ document.addEventListener('DOMContentLoaded', () => {
             document.querySelector('#hello').append(h2);
         };
 
-    });
-
-    socket.on('create channel', () => {
         document.querySelector('#createChannel').addEventListener('submit', () => {
-            let channelName = document.querySelector('#channelName').value;
-            socket.emit('add channel', {'channelName': channelName});
+            let chName = document.querySelector('#channelName').value;
+            socket.emit('add channel', {'chName': chName});
         });
+
     });
 
     // Delete data on localStorage
