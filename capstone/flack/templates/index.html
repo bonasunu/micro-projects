@@ -3,46 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+    <title>Flack beta</title>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
     <script src="{{ url_for('static', filename='index.js') }}"></script>
-    <title>Flack</title>
-    <style>
-        #form {
-            visibility: hidden;
-        }
-
-        #flackArea {
-            background-color: bisque;
-            max-width: 720px;
-            max-height: 480px;
-        }
-    </style>
 </head>
 <body>
-    <h1 id="flack">
-        Flack App
-    </h1>
-
-    <form id="form">
-        <input type="text" id="userInput">
-        <input type="submit" value="Submit">
-    </form>
-    
-    <div id="hello">
-    </div>
-
-    <div id="flackArea">
-        Flack Area
-        <ul id="channels">
-        </ul>
-        
-    </div>
     <form id="createChannel">
-        <input type="text" id="channelName">
+        <input id="newChannel" type="text">
         <input type="submit" value="Create channel">
     </form>
-    
-    <button>Delete Username</button>
-    List : {{ channelList }}
+    {{ myList }}
 </body>
 </html>
