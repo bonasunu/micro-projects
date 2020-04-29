@@ -8,10 +8,15 @@
     <script src="{{ url_for('static', filename='index.js') }}"></script>
 </head>
 <body>
-    <form id="createChannel">
-        <input id="newChannel" type="text">
-        <input type="submit" value="Create channel">
+    <div id="greet"></div>
+
+    <br>
+
+    <form id="create_channel">
+        <input id="channel" type="text">
+        <input type="submit">
     </form>
-    {{ myList }}
+    
+    {{ chList }}
 </body>
 </html>

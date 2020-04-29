@@ -7,17 +7,21 @@ app = Flask(__name__)
 app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
 socketio = SocketIO(app)
 
-myList = []
+chList = []
 
 @app.route("/")
 def index():
-    return render_template('index.html', myList=myList)
+    return render_template('index.html', chList=chList)
 
 @socketio.on("user connected")
 def connected(data):
-    ch = data["connected"]
-    myList.append(ch)
-    emit('myList', myList, broadcast=True)
+    activeUser = data["user"]
+    emit('greeting', activeUser, broadcast=True)
+
+@socketio.on('channel creation')
+def channel_creation(channel):
+    channelName = channel
+    emit('channel list', channelName, broadcast=True)
 
 if __name__ == '__main__':
     socketio.run(app)
