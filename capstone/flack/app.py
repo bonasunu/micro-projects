@@ -13,6 +13,10 @@ chList = []
 def index():
     return render_template('index.html', chList=chList)
 
+@socketio.on("connect")
+def show_last_channel():
+    emit('last channels', chList, broadcast=True)
+
 @socketio.on("user connected")
 def connected(data):
     activeUser = data["user"]
