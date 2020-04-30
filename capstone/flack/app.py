@@ -16,7 +16,7 @@ def index():
 @socketio.on("user connected")
 def connected(data):
     activeUser = data["user"]
-    emit('greeting', activeUser, broadcast=True)
+    emit('greeting', activeUser)
 
 @socketio.on('channel creation')
 def channel_creation(channel):
