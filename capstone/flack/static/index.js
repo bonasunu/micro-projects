@@ -9,14 +9,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const warnUser = document.createElement("h2");
         warnUser.innerHTML = "Please create username before use Flack app!";
         warnUser.className = "subtitle";
+        warnUser.id = "warning"
         document.querySelector('#greet').append(warnUser);
     };
 
     document.querySelector('#create_username').onsubmit = () => {
         const username = document.querySelector('#new_username').value;
         localStorage.setItem('user', username);
-        document.querySelector('#create_username').style.visibility = "hidden";
-
+        document.querySelector('#create_username').style.display = "none";
+        document.querySelector('#warning').style.display = "none";
+        socket.emit('user connected', {"user": username});
         return false;
     };
     
@@ -33,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     socket.on('greeting', data => {
         let hello = document.createElement('h2');
         hello.innerHTML = "Hello " + data + "!";
-        hello.className = "subtitle";
+        hello.className = "title";
         document.querySelector('#greet').append(hello);
     });
 
@@ -54,4 +56,8 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector("#ch_list").append(li);
         
     });
+
+    document.querySelector('#delete_data').onclick = () => {
+        localStorage.clear();
+    };
 }); 
