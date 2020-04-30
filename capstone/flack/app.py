@@ -20,8 +20,8 @@ def connected(data):
 
 @socketio.on('channel creation')
 def channel_creation(channel):
-    channelName = channel
-    emit('channel list', channelName, broadcast=True)
+    chList.append(channel)
+    emit('channel list', chList, broadcast=True)
 
 if __name__ == '__main__':
     socketio.run(app)

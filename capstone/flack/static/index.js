@@ -31,4 +31,4 @@ document.addEventListener('DOMContentLoaded', () => {
         h3.innerHTML = data;
         document.querySelector("body").append(h3);
     });
-});
+}); 
