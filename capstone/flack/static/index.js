@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     socket.on('channel list', data => {
         let li = document.createElement('a');
         li.innerHTML = '# ' + data;
+        li.className = 'panel-block';
         document.querySelector("#ch_list").append(li);
         
     });
