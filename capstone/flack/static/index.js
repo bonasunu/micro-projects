@@ -2,20 +2,39 @@ document.addEventListener('DOMContentLoaded', () => {
     // Connect to websocket
     var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port);
 
-   
+    
+    // Check localstorage for user info
+    if (!localStorage.getItem('user')) {
+        document.querySelector("#create_username").style.visibility = "visible";
+        const warnUser = document.createElement("h2");
+        warnUser.innerHTML = "Please create username before use Flack app!";
+        warnUser.className = "subtitle";
+        document.querySelector('#greet').append(warnUser);
+    };
 
+    document.querySelector('#create_username').onsubmit = () => {
+        const username = document.querySelector('#new_username').value;
+        localStorage.setItem('user', username);
+        document.querySelector('#create_username').style.visibility = "hidden";
+
+        return false;
+    };
+    
     // When connected, send info
     socket.on('connect', () => {
-        let user = "Bona";
-        
-        socket.emit('user connected', {"user": user});
+        if (localStorage.getItem('user')) {
+            document.querySelector('#create_username').style.visibility = "hidden";
+            let user = localStorage.getItem('user');
+            socket.emit('user connected', {"user": user});
+        };
     });
 
     // Send greeting message to user
     socket.on('greeting', data => {
-        let h2 = document.createElement("h2");
-        h2.innerHTML = "Hello " + data;
-        document.querySelector("#greet").append(h2);
+        let hello = document.createElement('h2');
+        hello.innerHTML = "Hello " + data + "!";
+        hello.className = "subtitle";
+        document.querySelector('#greet').append(hello);
     });
 
     // Create channel event
