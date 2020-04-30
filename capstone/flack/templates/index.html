@@ -6,17 +6,54 @@
     <title>Flack beta</title>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
     <script src="{{ url_for('static', filename='index.js') }}"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.js') }}">
 </head>
 <body>
-    <div id="greet"></div>
+    <section class="section">
+        <div class="container">
+            <h1 class="title">Flack App</h1>
 
-    <br>
-
-    <form id="create_channel">
-        <input id="channel" type="text">
-        <input type="submit">
-    </form>
+            <div class="columns">
+                <div class="column is-two-thirds">
+                    <h2 class="subtitle">Message on Channel</h2>
+                    
+                </div>
+                <div class="column">
+                    <h2 class="subtitle">Channels</h2>
+                    <div id="greet">
+                        <div id="create_username" class="field is-grouped">
+                            <p class="control is-expanded">
+                                <input id="new_username" class="input" type="text" placeholder="Insert ypur username">
+                            </p>
+                            <p class="control">
+                                <button class="button is-primary">
+                                    Create username
+                                </button>
+                            </p>
+                        </div>
+                    </div>
+                    <form id="create_channel" class="field is-grouped">
+                        <p class="control is-expanded">
+                            <input id="channel" class="input" type="text" placeholder="Insert ypur username">
+                        </p>
+                        <p class="control">
+                            <input type="submit" value="Create Channel" class="button is-primary">
+                        </p>
+                
+                    </form>
+                    <article id="ch_list" class="panel is-primary">
+                        <p class="panel-heading">
+                            Channel List
+                        </p>
+                        <a id="ch_panel" class="panel-block">
+                            # minireset.css
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
     
-    {{ chList }}
 </body>
 </html>
