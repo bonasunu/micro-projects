@@ -67,6 +67,9 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     });
 
+    // Implement join channel
+    
+
     document.querySelector('#delete_data').onclick = () => {
         localStorage.clear();
     };
