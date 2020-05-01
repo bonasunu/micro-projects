@@ -27,5 +27,7 @@ def channel_creation(channel):
     chList.append(channel)
     emit('channel list', chList, broadcast=True)
 
+# Join channel
+
 if __name__ == '__main__':
     socketio.run(app)
