@@ -69,7 +69,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Implement join channel
+    document.querySelectorAll('a').forEach(a => {
+        a.onclick = () => {
+            const chSelection = "Channel 1";
+            let user = localStorage.getItem('user');
+            socket.emit('join channel', {'chSelection': chSelection, 'user': user});
+        };
+    });
 
+    // Active channel
+    socket.on('active channel', data => {
+        const chMessage = document.createElement('h2');
+        chMessage.innerHTML = "Welcome to channel " + data['channel'];
+        chMessage.className = 'subtitle';
+        document.querySelector('#msg_area').append(chMessage);
+    });
 
     document.querySelector('#delete_data').onclick = () => {
         localStorage.clear();

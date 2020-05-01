@@ -1,13 +1,14 @@
 import os
 
 from flask import Flask, url_for, render_template
-from flask_socketio import SocketIO, emit
+from flask_socketio import SocketIO, emit, join_room, leave_room
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
 socketio = SocketIO(app)
 
 chList = []
+chSelection = ""
 
 @app.route("/")
 def index():
@@ -28,6 +29,13 @@ def channel_creation(channel):
     emit('channel list', chList, broadcast=True)
 
 # Join channel
+@socketio.on('join channel')
+def on_join(data):  
+    username = data['user']
+    room = data['chSelection']
+    chSelection = room
+    data = {'channel': room, 'user': user}
+    emit('active channel', data)
 
 if __name__ == '__main__':
     socketio.run(app)
