@@ -32,10 +32,9 @@ def channel_creation(channel):
 # Join channel
 @socketio.on('join channel')
 def on_join(data):  
-    username = data['user']
-    room = data['chSelection']
-    chSelection = room
-    data = {'channel': room, 'user': user}
+    username = "Bona"
+    room = data['ch']
+    data = {'channel': room, 'user': username}
     emit('active channel', data)
 
 if __name__ == '__main__':

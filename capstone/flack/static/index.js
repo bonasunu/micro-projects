@@ -72,9 +72,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Implement join channel
     document.querySelectorAll('a').forEach(a => {
         a.onclick = () => {
-            const chSelection = "Channel 1";
+            const ch = "Channel 1";
             let user = localStorage.getItem('user');
-            socket.emit('join channel', {'chSelection': chSelection, 'user': user});
+            socket.emit('join channel', {'ch': ch, 'user': user});
         };
     });
 
