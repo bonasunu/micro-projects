@@ -53,6 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let li = document.createElement('a');
         li.innerHTML = '# ' + data[data.length - 1];
         li.className = 'panel-block';
+        li.id = data[data.length - 1];
         document.querySelector("#ch_list").append(li);
         
     });
@@ -68,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Implement join channel
-    
+
 
     document.querySelector('#delete_data').onclick = () => {
         localStorage.clear();
