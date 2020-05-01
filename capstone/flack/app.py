@@ -28,6 +28,7 @@ def channel_creation(channel):
     chList.append(channel)
     emit('channel list', chList, broadcast=True)
 
+# TODO
 # Join channel
 @socketio.on('join channel')
 def on_join(data):  

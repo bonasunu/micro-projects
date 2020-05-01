@@ -67,7 +67,8 @@ document.addEventListener('DOMContentLoaded', () => {
             document.querySelector("#ch_list").append(li);
         };
     });
-
+    
+    // TODO
     // Implement join channel
     document.querySelectorAll('a').forEach(a => {
         a.onclick = () => {
@@ -77,6 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     });
 
+    // TODO
     // Active channel
     socket.on('active channel', data => {
         const chMessage = document.createElement('h2');
