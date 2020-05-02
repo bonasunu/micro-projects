@@ -68,6 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // TODO
     // Implement join channel
+    // Change a to button
     document.querySelectorAll('a').forEach(a => {
         a.onclick = () => {
             const ch = "Channel 1";
