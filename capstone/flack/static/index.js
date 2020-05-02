@@ -98,9 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // TODO
     // Active channel
     socket.on('active channel', data => {
-        const chMessage = document.createElement('h2');
-        chMessage.innerHTML = "Welcome to channel " + data;
-        document.querySelector('#msg_area').append(chMessage);
+        document.querySelector('#message').innerHTML = "Message on Channel " + data;
     });
 
     document.querySelector('#delete_data').onclick = () => {
