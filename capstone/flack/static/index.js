@@ -66,6 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
         for (let i = 0; i < data.length; i++) {
             let li = document.createElement('button');
             li.innerHTML = '# ' + data[i];
+            li.id = data[i];
             document.querySelector("#ch_list").append(li);
         };
     });
@@ -76,6 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('button').forEach(button => {
         button.onclick = () => {
             const ch = "Channel 1";
+            ch.id = 
             socket.emit('join channel', ch);
         };
     });
