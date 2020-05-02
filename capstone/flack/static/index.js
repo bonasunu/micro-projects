@@ -72,8 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('button').forEach(button => {
         button.onclick = () => {
             const ch = "Channel 1";
-            let user = localStorage.getItem('user');
-            socket.emit('join channel', {'ch': ch, 'user': user});
+            socket.emit('join channel', {'ch': ch});
         };
     });
 
@@ -82,7 +81,6 @@ document.addEventListener('DOMContentLoaded', () => {
     socket.on('active channel', data => {
         const chMessage = document.createElement('h2');
         chMessage.innerHTML = "Welcome to channel " + data['channel'];
-        chMessage.className = 'subtitle';
         document.querySelector('#msg_area').append(chMessage);
     });
 

@@ -34,7 +34,7 @@ def channel_creation(channel):
 def on_join(data):  
     username = "Bona"
     room = data['ch']
-    data = {'channel': room, 'user': username}
+    data = {'channel': room}
     emit('active channel', data)
 
 if __name__ == '__main__':
