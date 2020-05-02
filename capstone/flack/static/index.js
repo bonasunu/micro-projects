@@ -52,7 +52,6 @@ document.addEventListener('DOMContentLoaded', () => {
     socket.on('channel list', data => {
         let li = document.createElement('a');
         li.innerHTML = '# ' + data[data.length - 1];
-        li.className = 'panel-block';
         li.id = data[data.length - 1];
         document.querySelector("#ch_list").append(li);
         
@@ -63,7 +62,6 @@ document.addEventListener('DOMContentLoaded', () => {
         for (let i = 0; i < data.length; i++) {
             let li = document.createElement('a');
             li.innerHTML = '# ' + data[i];
-            li.className = 'panel-block';
             document.querySelector("#ch_list").append(li);
         };
     });

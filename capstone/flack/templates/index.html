@@ -8,7 +8,7 @@
     <script src="{{ url_for('static', filename='index.js') }}"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='index.js') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
 </head>
 <body>
     <section class="section">
@@ -56,14 +56,14 @@
                         </p>
                 
                     </form>
-                    <article id="ch_list" class="panel is-primary">
-                        <p class="panel-heading">
+                    <div id="ch_list">
+                        <p>
                             Channel List
                         </p>
-                        <a id="ch_panel" class="panel-block">
+                        <a id="ch_panel">
                             # minireset.css
                         </a>
-                    </article>
+                    </div>
                     <button id="delete_data">Delete data</button>
                 </div>
             </div>
