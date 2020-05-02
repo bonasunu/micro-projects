@@ -1,7 +1,7 @@
 import os
 
 from flask import Flask, url_for, render_template
-from flask_socketio import SocketIO, emit, join_room, leave_room
+from flask_socketio import SocketIO, emit, send, join_room, leave_room
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
@@ -32,12 +32,17 @@ def channel_creation(channel):
         chList.append(channel)
         emit('channel list', chList, broadcast=True)
 
-# TODO
 # Join channel
 @socketio.on('join channel')
 def on_join(ch):
     chSelection = ch
     emit('active channel', chSelection)
+
+# TODO
+# Send message
+@socketio.on('message')
+def handle_message(message):
+    send('message area', message)
 
 if __name__ == '__main__':
     socketio.run(app)

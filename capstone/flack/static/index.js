@@ -2,6 +2,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Connect to websocket
     var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port);
 
+    // active channel
+    var activeChannel;
+
     // Check localstorage for user info
     if (!localStorage.getItem('user')) {
         document.querySelector("#create_username").style.visibility = "visible";
@@ -71,7 +74,6 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     });
     
-    // TODO
     // Implement join channel
     // Change a to button
     //document.querySelectorAll('button').forEach(button => {
@@ -95,10 +97,25 @@ document.addEventListener('DOMContentLoaded', () => {
         socket.emit('join channel', ch);
     });
 
-    // TODO
     // Active channel
     socket.on('active channel', data => {
+        activeChannel = data;
         document.querySelector('#message').innerHTML = "Message on Channel " + data;
+    });
+
+    // TODO
+    // Send message
+    document.querySelector('#msgText').onsubmit = () => {
+        let msg = document.querySelector('#msg').value;
+        socket.emit('message', msg);
+    };
+
+    // TODO
+    // Message area
+    socket.on('message area', data => {
+        let p = document.createElement('p');
+        p.innerHTML = data;
+        document.querySelector('#msg_area').append(p);
     });
 
     // Delete data on LocalStorage
