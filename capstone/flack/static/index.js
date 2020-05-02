@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Connect to websocket
     var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port);
 
-    
     // Check localstorage for user info
     if (!localStorage.getItem('user')) {
         document.querySelector("#create_username").style.visibility = "visible";
@@ -50,10 +49,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Show list of channels
     socket.on('channel list', data => {
-        let li = document.createElement('button');
-        li.innerHTML = '# ' + data[data.length - 1];
-        li.id = data[data.length - 1];
-        document.querySelector("#ch_list").append(li);
+        if (data === "Channel exists") {
+            alert("Channel exists");
+        }
+        else {
+            let li = document.createElement('button');
+            li.innerHTML = '# ' + data[data.length - 1];
+            li.id = data[data.length - 1];
+            document.querySelector("#ch_list").append(li);
+        };
         
     });
 
@@ -72,15 +76,22 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('button').forEach(button => {
         button.onclick = () => {
             const ch = "Channel 1";
-            socket.emit('join channel', {'ch': ch});
+            socket.emit('join channel', ch);
         };
     });
+
+    //document.querySelectorAll('button').forEach(button => {
+    //    button.addEventListener('click', () => {
+    //        const ch = "Channel 1";
+    //        socket.emit('join channel', ch);
+    //    });
+    //});
 
     // TODO
     // Active channel
     socket.on('active channel', data => {
         const chMessage = document.createElement('h2');
-        chMessage.innerHTML = "Welcome to channel " + data['channel'];
+        chMessage.innerHTML = "Welcome to channel " + data;
         document.querySelector('#msg_area').append(chMessage);
     });
 

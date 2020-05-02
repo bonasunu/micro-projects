@@ -25,17 +25,20 @@ def connected(data):
 
 @socketio.on('channel creation')
 def channel_creation(channel):
-    chList.append(channel)
-    emit('channel list', chList, broadcast=True)
+
+    if channel in chList:
+        emit('channel list', 'Channel exists')
+    else:
+        chList.append(channel)
+        emit('channel list', chList, broadcast=True)
 
 # TODO
 # Join channel
 @socketio.on('join channel')
-def on_join(data):  
+def on_join(ch):  
     username = "Bona"
-    room = data['ch']
-    data = {'channel': room}
-    emit('active channel', data)
+    chSelection = ch
+    emit('active channel', chSelection)
 
 if __name__ == '__main__':
     socketio.run(app)
