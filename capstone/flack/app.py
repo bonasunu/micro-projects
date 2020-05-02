@@ -16,7 +16,7 @@ def index():
 
 @socketio.on("connect")
 def show_last_channel():
-    emit('last channels', chList)
+    emit('last channel', chList)
 
 @socketio.on("user connected")
 def connected(data):

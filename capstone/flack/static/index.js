@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Show last channels
-    socket.on('last channels', data => {
+    socket.on('last channel', data => {
         for (let i = 0; i < data.length; i++) {
             let li = document.createElement('button');
             li.innerHTML = '# ' + data[i];
