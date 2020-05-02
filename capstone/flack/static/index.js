@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Show list of channels
     socket.on('channel list', data => {
-        let li = document.createElement('a');
+        let li = document.createElement('button');
         li.innerHTML = '# ' + data[data.length - 1];
         li.id = data[data.length - 1];
         document.querySelector("#ch_list").append(li);
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Show last channels
     socket.on('last channels', data => {
         for (let i = 0; i < data.length; i++) {
-            let li = document.createElement('a');
+            let li = document.createElement('button');
             li.innerHTML = '# ' + data[i];
             document.querySelector("#ch_list").append(li);
         };
@@ -69,8 +69,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // TODO
     // Implement join channel
     // Change a to button
-    document.querySelectorAll('a').forEach(a => {
-        a.onclick = () => {
+    document.querySelectorAll('button').forEach(button => {
+        button.onclick = () => {
             const ch = "Channel 1";
             let user = localStorage.getItem('user');
             socket.emit('join channel', {'ch': ch, 'user': user});
