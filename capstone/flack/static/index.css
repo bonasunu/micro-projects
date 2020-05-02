@@ -1,6 +1,7 @@
 #msg_area {
     height: 50vh !important;
     display: block;
-    background-color: #DCDCDC;
+    background-color: #EFEFEF;
     overflow: auto;
+    border-radius: 10px;
 }
