@@ -35,8 +35,7 @@ def channel_creation(channel):
 # TODO
 # Join channel
 @socketio.on('join channel')
-def on_join(ch):  
-    username = "Bona"
+def on_join(ch):
     chSelection = ch
     emit('active channel', chSelection)
 

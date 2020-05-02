@@ -74,13 +74,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // TODO
     // Implement join channel
     // Change a to button
-    document.querySelectorAll('button').forEach(button => {
-        button.onclick = () => {
-            const ch = "Channel 1";
-            ch.id = 
-            socket.emit('join channel', ch);
-        };
-    });
+    //document.querySelectorAll('button').forEach(button => {
+    //    button.onclick = () => {
+    //        const ch = "Channel 1";
+    //        ch.id = 
+    //        socket.emit('join channel', ch);
+    //    };
+    //});
 
     //document.querySelectorAll('button').forEach(button => {
     //    button.addEventListener('click', () => {
@@ -88,6 +88,12 @@ document.addEventListener('DOMContentLoaded', () => {
     //        socket.emit('join channel', ch);
     //    });
     //});
+
+    document.querySelector('#ch_list').addEventListener('click', function(e) {
+        let clicked = e.target;
+        let ch = clicked.id;
+        socket.emit('join channel', ch);
+    });
 
     // TODO
     // Active channel
