@@ -101,6 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('#message').innerHTML = "Message on Channel " + data;
     });
 
+    // Delete data on LocalStorage
     document.querySelector('#delete_data').onclick = () => {
         localStorage.clear();
     };
