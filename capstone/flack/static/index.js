@@ -90,14 +90,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // TODO
     // Send message
-    document.querySelector('#msgText').onsubmit = () => {
+    //document.querySelector('#sendMsg').addEventListener('click', function() {
+    //    let msg = document.querySelector('#msg').value;
+    //    socket.emit('message', msg);
+    //});
+
+    document.querySelector('#sendMsg').onclick = () => {
         let msg = document.querySelector('#msg').value;
         socket.emit('message', msg);
     };
 
     // TODO
     // Message area
-    socket.on('message area', data => {
+    socket.on('message', data => {
         let p = document.createElement('p');
         p.innerHTML = data;
         document.querySelector('#msg_area').append(p);

@@ -42,7 +42,7 @@ def on_join(ch):
 # Send message
 @socketio.on('message')
 def handle_message(message):
-    send('message area', message)
+    send(message)
 
 if __name__ == '__main__':
     socketio.run(app)
