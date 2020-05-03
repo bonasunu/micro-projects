@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port);
 
     // active channel
-    var activeChannel;
+    var activeChannel = "";
 
     // Check localstorage for user info
     if (!localStorage.getItem('user')) {
@@ -85,8 +85,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Active channel
     socket.on('active channel', data => {
         activeChannel = data;
+        document.querySelector('#sendMsg').disabled = false;
         document.querySelector('#message').innerHTML = "Message on Channel " + data;
     });
+
+    // Disable message send button if user not select any channel
+    if (activeChannel == "") {
+        document.querySelector('#sendMsg').disabled = true;
+    };
 
     // TODO
     // Send message
