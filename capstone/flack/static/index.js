@@ -45,7 +45,12 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector("#create_channel").onsubmit = () => {
         // Emit the channel creation event using the input from the user
         const channel = document.querySelector("#channel").value;
+
         socket.emit("channel creation", channel);
+
+        // Clear input field
+        document.querySelector("#channel").value = '';
+
         // Prevent form submission
         return false;
     };
@@ -98,7 +103,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Send message
     document.querySelector('#sendMsg').onclick = () => {
         let msg = document.querySelector('#msg').value;
+
         socket.emit('message', msg);
+
+        // Clear input field
+        document.querySelector('#msg').value = '';
+
+        return false;
     };
 
     // TODO
