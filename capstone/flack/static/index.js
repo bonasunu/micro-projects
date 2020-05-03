@@ -81,6 +81,8 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     });
     
+    // TODO
+    // Start implement "messages per channel" from here
     // Implement join channel
 
     document.querySelector('#ch_list').addEventListener('click', function(e) {
