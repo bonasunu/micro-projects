@@ -64,6 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
             let li = document.createElement('button');
             li.innerHTML = '# ' + data[data.length - 1];
             li.id = data[data.length - 1];
+            li.className = 'button is-light'
             document.querySelector("#ch_list").append(li);
         };
         
@@ -83,8 +84,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelector('#ch_list').addEventListener('click', function(e) {
         let clicked = e.target;
-        let ch = clicked.id;
-        socket.emit('join channel', ch);
+        if (clicked instanceof HTMLButtonElement) {
+            let ch = clicked.id;
+            socket.emit('join channel', ch);
+        };
     });
 
     // Active channel
