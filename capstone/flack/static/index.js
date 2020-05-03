@@ -90,11 +90,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // TODO
     // Send message
-    //document.querySelector('#sendMsg').addEventListener('click', function() {
-    //    let msg = document.querySelector('#msg').value;
-    //    socket.emit('message', msg);
-    //});
-
     document.querySelector('#sendMsg').onclick = () => {
         let msg = document.querySelector('#msg').value;
         socket.emit('message', msg);
