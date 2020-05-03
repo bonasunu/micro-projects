@@ -39,6 +39,7 @@ def on_join(ch):
     emit('active channel', chSelection)
 
 # TODO
+# Change message when user change channel
 # Send message
 @socketio.on('message')
 def handle_message(message):

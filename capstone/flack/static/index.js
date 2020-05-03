@@ -100,6 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // TODO
+    // Change message when user change channel
     // Send message
     document.querySelector('#sendMsg').onclick = () => {
         let msg = document.querySelector('#msg').value;
@@ -113,6 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // TODO
+    // Change message when user change channel
     // Message area
     socket.on('message', data => {
         let p = document.createElement('p');
