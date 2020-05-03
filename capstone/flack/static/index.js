@@ -76,6 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
             let li = document.createElement('button');
             li.innerHTML = '# ' + data[i];
             li.id = data[i];
+            li.className = 'button is-light'
             document.querySelector("#ch_list").append(li);
         };
     });
