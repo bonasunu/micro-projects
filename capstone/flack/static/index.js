@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
     socket.on('active channel', data => {
         activeChannel = data;
         document.querySelector('#sendMsg').disabled = false;
-        document.querySelector('#message').innerHTML = "Message on Channel " + data;
+        document.querySelector('#message').innerHTML = "Message on Channel # " + data;
     });
 
     // Disable message send button if user not select any channel
