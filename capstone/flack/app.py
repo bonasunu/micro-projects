@@ -8,6 +8,7 @@ app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
 socketio = SocketIO(app)
 
 chList = []
+chListMsg = {}
 chSelection = ""
 
 @app.route("/")
@@ -26,6 +27,8 @@ def connected(data):
 @socketio.on('channel creation')
 def channel_creation(channel):
 
+    chListMsg[channel] = ["Hi", "Heyya"]
+
     if channel in chList:
         emit('channel list', 'Channel exists')
     else:
@@ -35,8 +38,9 @@ def channel_creation(channel):
 # Join channel
 @socketio.on('join channel')
 def on_join(ch):
-    chSelection = ch
-    emit('active channel', chSelection)
+    
+    data = {"ch": ch, "msg": chListMsg[ch]}
+    emit('active channel', data)
 
 # TODO
 # Change message when user change channel

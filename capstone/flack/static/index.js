@@ -95,9 +95,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Active channel
     socket.on('active channel', data => {
-        activeChannel = data;
+        let chMsg = data["msg"];
+
+        for (let i = 0; i < chMsg.length; i++) {
+            let p = document.createElement('p');
+            p.innerHTML = chMsg[i];
+            document.querySelector('#msg_area').append(p);
+        };
+
+        activeChannel = data["ch"];
         document.querySelector('#sendMsg').disabled = false;
-        document.querySelector('#message').innerHTML = "Message on Channel # " + data;
+        document.querySelector('#message').innerHTML = "Message on Channel # " + data["ch"];
     });
 
     // Disable message send button if user not select any channel
