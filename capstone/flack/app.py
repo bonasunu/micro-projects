@@ -27,7 +27,7 @@ def connected(data):
 @socketio.on('channel creation')
 def channel_creation(channel):
 
-    chListMsg[channel] = ["Hi", "Heyya"]
+    chListMsg[channel] = []
 
     if channel in chList:
         emit('channel list', 'Channel exists')
@@ -39,6 +39,7 @@ def channel_creation(channel):
 @socketio.on('join channel')
 def on_join(ch):
     
+    activeCh = ch
     data = {"ch": ch, "msg": chListMsg[ch]}
     emit('active channel', data)
 
@@ -46,8 +47,11 @@ def on_join(ch):
 # Change message when user change channel
 # Send message
 @socketio.on('message')
-def handle_message(message):
-    send(message)
+def handle_message(data):
+    activeChannel = data["activeChannel"]
+    msg = data["msg"]
+    chListMsg[activeChannel].append(msg)
+    send(msg)
 
 if __name__ == '__main__':
     socketio.run(app)

@@ -122,7 +122,9 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('#sendMsg').onclick = () => {
         let msg = document.querySelector('#msg').value;
 
-        socket.emit('message', msg);
+        data = {'msg': msg, 'activeChannel': activeChannel};
+
+        socket.emit('message', data);
 
         // Clear input field
         document.querySelector('#msg').value = '';
