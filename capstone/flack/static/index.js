@@ -81,8 +81,6 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     });
     
-    // TODO
-    // Start implement "messages per channel" from here
     // Implement join channel
 
     document.querySelector('#ch_list').addEventListener('click', function(e) {
@@ -117,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // TODO
-    // Change message when user change channel
+    // Max message storage is 100
     // Send message
     document.querySelector('#sendMsg').onclick = () => {
         let msg = document.querySelector('#msg').value;
@@ -133,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // TODO
-    // Change message when user change channel
+    // Max message storage is 100
     // Message area
     socket.on('message', data => {
         let p = document.createElement('p');
