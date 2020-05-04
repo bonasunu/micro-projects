@@ -95,6 +95,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Active channel
     socket.on('active channel', data => {
+        // Clear message are
+        document.querySelector('#msg_area').innerHTML = "";
+
         let chMsg = data["msg"];
 
         for (let i = 0; i < chMsg.length; i++) {
