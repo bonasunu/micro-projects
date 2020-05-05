@@ -47,8 +47,6 @@ def on_join(ch):
     
     emit('active channel', data)
 
-# TODO
-# Max message storage is 100
 # Send message
 @socketio.on('message')
 def handle_message(data):

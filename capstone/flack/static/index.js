@@ -125,8 +125,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('#sendMsg').disabled = true;
     };
 
-    // TODO
-    // Max message storage is 100
     // Send message
     document.querySelector('#sendMsg').onclick = () => {
 
@@ -156,8 +154,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return false;
     };
 
-    // TODO
-    // Max message storage is 100
     // Message area
     socket.on('message', data => {
         let p = document.createElement('p');
