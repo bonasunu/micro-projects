@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // User display
         let user = localStorage.getItem('user');
 
-        fullMsg = `<span class="user_display">${user}</span> (<span class="time">${timestamp}</span>) - <span class="chat">${msg}</span>`;
+        fullMsg = `<span id="${user}"><span class="user_display">${user}</span> (<span class="time">${timestamp}</span>) <span class="chat">${msg}</span></span>`;
 
         data = {'msg': fullMsg, 'activeChannel': activeChannel};
 
@@ -159,6 +159,12 @@ document.addEventListener('DOMContentLoaded', () => {
         let p = document.createElement('p');
         p.innerHTML = data;
         document.querySelector('#msg_area').append(p);
+
+        // Styling chat from current user
+        let activeUser = '#' + localStorage.getItem('user');
+        document.querySelectorAll(activeUser).forEach(chat => {
+        chat.className = "level-right";
+        });
     });
 
     // Delete data on LocalStorage

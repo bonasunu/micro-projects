@@ -11,6 +11,12 @@
     font-size: x-large;
 }
 
+.right {
+    float: right;
+    white-space: nowrap;
+}
+
+/*
 .user_display {
     font-weight: bold;
 }
@@ -23,3 +29,4 @@
 .chat {
     font-family: monospace;
 }
+*/
