@@ -11,6 +11,10 @@
     font-size: x-large;
 }
 
+#greet {
+    margin: 10px;
+}
+
 .user_display {
     font-weight: bold;
 }

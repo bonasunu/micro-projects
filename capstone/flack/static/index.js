@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         activeChannel = data["ch"];
-        lastActiveChannel =activeChannel;
+        lastActiveChannel = activeChannel;
         localStorage.setItem("channel", lastActiveChannel);
 
         document.querySelector('#sendMsg').disabled = false;
@@ -162,7 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Delete data on LocalStorage
-    //document.querySelector('#delete_data').onclick = () => {
-    //    localStorage.clear();
-    //};
+    document.querySelector('#delete_data').onclick = () => {
+        localStorage.clear();
+    };
 }); 
