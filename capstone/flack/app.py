@@ -56,7 +56,7 @@ def handle_message(data):
     msg = data["msg"]
     
     chListMsg[activeChannel].append(msg)
-    send(msg)
+    send(msg, broadcast=True)
 
     # check total messages in channel
     total = len(chListMsg[activeChannel])

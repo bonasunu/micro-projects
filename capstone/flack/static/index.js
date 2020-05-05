@@ -129,9 +129,24 @@ document.addEventListener('DOMContentLoaded', () => {
     // Max message storage is 100
     // Send message
     document.querySelector('#sendMsg').onclick = () => {
+
+        // Message value
         let msg = document.querySelector('#msg').value;
 
-        data = {'msg': msg, 'activeChannel': activeChannel};
+        // Timestamp feature
+        let currentDate = new Date();
+        let day = currentDate.getDate();
+        let month = currentDate.getMonth();
+        let year = currentDate.getFullYear();
+
+        let timestamp = `${month} - ${day} - ${year}`;
+
+        // User display
+        let user = localStorage.getItem('user');
+
+        fullMsg = `<span class="user_display">${user}</span> (<span class="time">${timestamp}</span>) - <span class="chat">${msg}</span>`;
+
+        data = {'msg': fullMsg, 'activeChannel': activeChannel};
 
         socket.emit('message', data);
 
