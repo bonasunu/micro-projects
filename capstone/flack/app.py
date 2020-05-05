@@ -54,8 +54,16 @@ def on_join(ch):
 def handle_message(data):
     activeChannel = data["activeChannel"]
     msg = data["msg"]
+    
     chListMsg[activeChannel].append(msg)
     send(msg)
+
+    # check total messages in channel
+    total = len(chListMsg[activeChannel])
+    msgCh = chListMsg[activeChannel]
+
+    if total > 100:
+        del msgCh[0]
 
 if __name__ == '__main__':
     socketio.run(app)
