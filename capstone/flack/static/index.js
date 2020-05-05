@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
     socket.on('greeting', data => {
         let hello = document.createElement('h2');
         hello.innerHTML = "Hello " + data + "!";
-        hello.className = "title";
+        hello.className = "subtitle";
         document.querySelector('#greet').append(hello);
     });
 
@@ -159,12 +159,6 @@ document.addEventListener('DOMContentLoaded', () => {
         let p = document.createElement('p');
         p.innerHTML = data;
         document.querySelector('#msg_area').append(p);
-
-        // Styling chat from current user
-        let activeUser = '#' + localStorage.getItem('user');
-        document.querySelectorAll(activeUser).forEach(chat => {
-        chat.className = "level-right";
-        });
     });
 
     // Delete data on LocalStorage

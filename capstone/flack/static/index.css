@@ -11,11 +11,20 @@
     font-size: x-large;
 }
 
+#warning {
+    margin-bottom: 10px;
+}
+
+.hello_message {
+    margin: 1px;
+}
+
+/*
 .right {
     float: right;
     white-space: nowrap;
 }
-
+*/
 /*
 .user_display {
     font-weight: bold;
