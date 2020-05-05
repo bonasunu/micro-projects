@@ -89,6 +89,8 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     });
     
+    // TODO
+    // Implement join and leave room, send msg to room
     // Implement join channel
 
     document.querySelector('#ch_list').addEventListener('click', function(e) {
