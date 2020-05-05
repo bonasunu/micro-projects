@@ -5,6 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // active channel
     var activeChannel = "";
 
+    // last active channel
+    var lastActiveChannel = "";
+
     // Check localstorage for user info
     if (!localStorage.getItem('user')) {
         document.querySelector("#create_username").style.visibility = "visible";
@@ -30,6 +33,11 @@ document.addEventListener('DOMContentLoaded', () => {
             document.querySelector('#create_username').style.visibility = "hidden";
             let user = localStorage.getItem('user');
             socket.emit('user connected', {"user": user});
+        };
+
+        if (localStorage.getItem('channel')) {
+            let lastCh = localStorage.getItem('channel');
+            socket.emit('join channel', lastCh);
         };
     });
 
@@ -105,6 +113,9 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         activeChannel = data["ch"];
+        lastActiveChannel =activeChannel;
+        localStorage.setItem("channel", lastActiveChannel);
+
         document.querySelector('#sendMsg').disabled = false;
         document.querySelector('#message').innerHTML = "Message on Channel # " + data["ch"];
     });

@@ -39,8 +39,12 @@ def channel_creation(channel):
 @socketio.on('join channel')
 def on_join(ch):
     
-    activeCh = ch
-    data = {"ch": ch, "msg": chListMsg[ch]}
+    chSelection = ch
+    if ch in chListMsg:
+        data = {"ch": ch, "msg": chListMsg[ch]}
+    else:
+        return False
+    
     emit('active channel', data)
 
 # TODO
