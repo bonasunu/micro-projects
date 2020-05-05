@@ -4,6 +4,11 @@
     background-color: #F5F5F5;
     overflow: auto;
     border-radius: 10px;
+    padding: 20px;
+}
+
+#msg_area > p {
+    font-size: x-large;
 }
 
 .user_display {
@@ -17,4 +22,9 @@
 
 .chat {
     font-family: monospace;
+}
+
+#ch_list {
+    height: 40vh !important;
+    overflow: auto;
 }
