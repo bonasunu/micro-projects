@@ -5,3 +5,16 @@
     overflow: auto;
     border-radius: 10px;
 }
+
+.user_display {
+    font-weight: bold;
+}
+
+.time {
+    font-weight: lighter;
+    font-size: small;
+}
+
+.chat {
+    font-family: monospace;
+}
