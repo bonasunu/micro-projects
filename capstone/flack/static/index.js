@@ -97,7 +97,10 @@ document.addEventListener('DOMContentLoaded', () => {
         let clicked = e.target;
         if (clicked instanceof HTMLButtonElement) {
             let ch = clicked.id;
+            let user = localStorage.getItem('user');
+            data = {"ch": ch, "user": user};
             socket.emit('join channel', ch);
+            socket.emit('join', data);
         };
     });
 

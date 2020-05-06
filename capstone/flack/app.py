@@ -49,6 +49,13 @@ def on_join(ch):
     
     emit('active channel', data)
 
+@socketio.on('join')
+def on_join(data):
+    username = data['user']
+    room = data['ch']
+    join_room(room)
+    send(username + ' has entered the room.', room=room)
+
 # Send message
 @socketio.on('message')
 def handle_message(data):
