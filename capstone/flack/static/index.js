@@ -119,12 +119,14 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem("channel", lastActiveChannel);
 
         document.querySelector('#sendMsg').disabled = false;
+        document.querySelector('#leaveChannel').disabled = false;
         document.querySelector('#message').innerHTML = "Message on Channel # " + data["ch"];
     });
 
     // Disable message send button if user not select any channel
     if (activeChannel == "") {
         document.querySelector('#sendMsg').disabled = true;
+        document.querySelector('#leaveChannel').disabled = true;
     };
 
     // Send message
