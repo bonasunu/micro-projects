@@ -172,4 +172,13 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('#delete_data').onclick = () => {
         localStorage.clear();
     };
+
+    // Leave room
+    document.querySelector('#leaveChannel').onclick = () => {
+
+        let user = localStorage.getItem('user');
+        let ch = activeChannel;
+        data = {'user': user, 'ch': ch};
+        socket.emit('leave', data);
+    };
 }); 

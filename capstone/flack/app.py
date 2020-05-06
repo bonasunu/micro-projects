@@ -56,14 +56,23 @@ def on_join(data):
     join_room(room)
     send(username + ' has entered the room.', room=room)
 
+@socketio.on('leave')
+def on_leave(data):
+    username = data['user']
+    room = data['ch']
+    leave_room(room)
+    send(username + ' has left the room.', room=room)
+    emit('message', 'You left this channel')
+
 # Send message
 @socketio.on('message')
 def handle_message(data):
     activeChannel = data["activeChannel"]
     msg = data["msg"]
+    room = activeChannel
     
     chListMsg[activeChannel].append(msg)
-    send(msg, broadcast=True)
+    send(msg, room=room)
 
     # check total messages in channel
     total = len(chListMsg[activeChannel])
