@@ -35,7 +35,6 @@ def channel_creation(channel):
         chList.append(channel)
         emit('channel list', chList, broadcast=True)
 
-# TODO
 # Implement join and leave room, send msg to room
 # Join channel
 @socketio.on('join channel')
