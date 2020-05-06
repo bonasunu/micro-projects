@@ -168,9 +168,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Delete data on LocalStorage
-    document.querySelector('#delete_data').onclick = () => {
-        localStorage.clear();
-    };
+    // document.querySelector('#delete_data').onclick = () => {
+    //    localStorage.clear();
+    //};
 
     // Leave room
     document.querySelector('#leaveChannel').onclick = () => {
