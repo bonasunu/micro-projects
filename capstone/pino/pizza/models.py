@@ -46,3 +46,27 @@ class Pizza(models.Model):
     size = models.CharField(max_length=1, choices=PIZZA_SIZE)
     price = models.FloatField()
 
+class Toppings(models.Model):
+    PIZZA_TOPPINGS = (
+        ("Pepperoni", "Pepperoni"),
+        ("Sausage", "Sausage"),
+        ("Mushrooms", "Mushrooms"),
+        ("Onions", "Onions"),
+        ("Ham", "Ham"),
+        ("Canadian Bacon", "Canadian Bacon"),
+        ("Pineapple", "Pineapple"),
+        ("Eggplant", "Eggplant"),
+        ("Tomato & Basil", "Tomato & Basil"),
+        ("Green Peppers", "Green Peppers"),
+        ("Hamburger","Hamburger"),
+        ("Spinach","Spinach"),
+        ("Artichoke", "Artichoke"),
+        ("Buffalo Chicken", "Buffalo Chicken"),
+        ("Barbecue Chicken","Barbecue Chicken"),
+        ("Anchovies", "Anchovies"),
+        ("Black Olives", "Black Olives"),
+        ("Fresh Gralic", "Fresh Gralic"),
+        ("Zucchini", "Zucchini")
+    )
+
+    topping = models.CharField(max_length=64, choices=PIZZA_TOPPINGS)
