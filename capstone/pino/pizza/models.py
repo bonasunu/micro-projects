@@ -29,3 +29,20 @@ class Platters(models.Model):
 
     def __str__(self):
         return f"{self.platter} - {self.size} - {self.price}"
+
+class Pizza(models.Model):
+    PIZZA_SIZE = (
+        ("S", "Small"),
+        ("L", "Large")
+    )
+
+    PIZZA_TYPE = (
+        ("Reguler", "Reguler"),
+        ("Sicilian","Sicilian")
+    )
+
+    pizza_type = models.CharField(max_length=8, choices=PIZZA_TYPE)
+    pizza_menu = models.CharField(max_length=64)
+    size = models.CharField(max_length=1, choices=PIZZA_SIZE)
+    price = models.FloatField()
+
