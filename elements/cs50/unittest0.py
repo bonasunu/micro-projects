@@ -1,4 +1,4 @@
-import unittest
+from unittest import TestCase
 
 from prime import is_prime
 
