@@ -1,0 +1,1 @@
+python3 -c "from prime import is_prime;test_prime(-4, False)"
