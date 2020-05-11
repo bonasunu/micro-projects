@@ -17,4 +17,4 @@ class Flight(models.Model):
       return (self.origin != self.destination) and (self.duration >= 0)
 
     def __str__(self):
-        return f"{self.id} - {self.origin} to {self.destination}"
+      return f"{self.id} - {self.origin} to {self.destination}"
