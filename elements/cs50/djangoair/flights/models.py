@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.exceptions import ValidationError
 
 # Create your models here.
 class Airport(models.Model):
@@ -18,3 +19,13 @@ class Flight(models.Model):
 
     def __str__(self):
       return f"{self.id} - {self.origin} to {self.destination}"
+
+    def clean(self):
+        if self.origin == self.destination:
+          raise ValidationError("Origin and destination must be different.")
+        elif self.duration < 1:
+          raise ValidationError("Duration must be positive.")
+        
+    def save(self, *args, **kwargs):
+        self.clean()
+        super().save(*args, **kwargs)
