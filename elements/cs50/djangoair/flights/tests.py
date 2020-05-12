@@ -36,3 +36,5 @@ class FlightsTestCase(TestCase):
         response = c.get("/")
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.context["flights"].count(), 2)
+
+    """Test is working"""
