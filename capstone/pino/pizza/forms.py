@@ -26,3 +26,5 @@ class RegisterUser(UserCreationForm):
             user.save()
 
         return user
+
+    TODO edit form style and handle error input on user registration (ex: wrong password input)
