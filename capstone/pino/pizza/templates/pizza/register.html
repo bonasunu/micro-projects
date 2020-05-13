@@ -1,0 +1,15 @@
+{% extends 'pizza/base.html' %}
+
+{% block title %}
+Register
+{% endblock %}
+
+{% block body %}
+<section class="section">
+    {% csrf_token %}
+    <form action="" method="POST">
+        {{ form }}
+    </form>
+</section>
+
+{% endblock %}
