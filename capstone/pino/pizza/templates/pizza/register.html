@@ -6,9 +6,11 @@ Register
 
 {% block body %}
 <section class="section">
-    {% csrf_token %}
+    
     <form action="" method="POST">
+        {% csrf_token %}
         {{ form }}
+        <input type="submit" value="Create User">
     </form>
 </section>
 

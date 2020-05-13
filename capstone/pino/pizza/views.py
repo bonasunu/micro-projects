@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from django.contrib.auth.forms import UserCreationForm
+from pizza.forms import RegisterUser
 from .models import Pizza
 
 # Create your views here.
@@ -20,13 +20,14 @@ def find_us(request):
     return render(request, "pizza/find-us.html")
 
 def register_user(request):
-        
-    form = UserCreationForm()
+
+    form = RegisterUser()
 
     if request.method == "POST":
-        form = UserCreationForm(request.POST)
-        if form.is_valid:
+        form = RegisterUser(request.POST)
+        if form.is_valid():
             form.save()
+            return redirect('/menu')
     
     context = {'form': form}
 

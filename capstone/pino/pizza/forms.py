@@ -2,10 +2,27 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
-class Register(forms.Form):
-    first_name = forms.CharField(widget=forms.TextInput())
-    last_name = forms.CharField(widget=forms.TextInput())
-    username = forms.CharField(widget=forms.TextInput())
-    email = forms.EmailField(widget=forms.EmailInput())
-    password = forms.CharField(widget=PasswordInput())
-    password_repeat = forms.CharField(widget=PasswordInput())
+class RegisterUser(UserCreationForm):
+    email = forms.EmailField(required=True)
+
+    class Meta:
+        model = User
+        fields = (
+            'username',
+            'first_name',
+            'last_name',
+            'email',
+            'password1',
+            'password2'
+        )
+
+    def save(self, commit=True):
+        user = super(RegisterUser, self).save(commit=False)
+        user.first_name = self.cleaned_data['first_name']
+        user.last_name = self.cleaned_data['last_name']
+        user.email = self.cleaned_data['email']
+
+        if commit:
+            user.save()
+
+        return user
