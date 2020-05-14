@@ -10,6 +10,7 @@ Register
         <div class="column is-one-quarter">
             <form action="" method="POST">
                 {% csrf_token %}
+                <p class="subtitle">Create account on this site</p>
                 <div class="field">
                     <label class="label">{{ form.first_name.label }}</label>
                     <div class="control">
@@ -35,13 +36,13 @@ Register
                     </div>
                 </div>
                 <div class="field">
-                    <label class="label">{{ form.password1.label }}</label>
+                    <label class="label">Password</label>
                     <div class="control">
                         {{ form.password1 }}
                     </div>
                 </div>
                 <div class="field">
-                    <label class="label">{{ form.password2.label }}</label>
+                    <label class="label">Type password again</label>
                     <div class="control">
                         {{ form.password2 }}
                     </div>
@@ -50,6 +51,7 @@ Register
                     <input type="submit" value="Create User" class="button is-success">
                 </div>
                 
+                <p class="subtitle">Already have account? <a href="{% url 'login' %}">Login</a></p>
             </form>
         </div>
     </div>

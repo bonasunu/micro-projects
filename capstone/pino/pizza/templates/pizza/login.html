@@ -11,7 +11,7 @@ Login
             <!-- TODO edit form style and handle error input on user registration (ex: wrong password input) -->
             <form action="" method="POST">
                 {% csrf_token %}
-                
+                <p class="subtitle">Login to your account</p>
                 <div class="field">
                     <label class="label">Username</label>
                     <div class="control">
@@ -28,6 +28,8 @@ Login
                 <div class="buttons">
                     <input type="submit" value="Login" class="button is-success">
                 </div>
+                
+                <p class="subtitle">Don't have account? <a href="{% url 'register' %}">Register</a></p>
                 
             </form>
         </div>
