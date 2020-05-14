@@ -6,50 +6,55 @@ Register
 
 {% block body %}
 <section class="section">
-    <!-- TODO edit form style and handle error input on user registration (ex: wrong password input) -->
-    <form action="" method="POST">
-        {% csrf_token %}
-        <div class="field">
-            <label class="label">{{ form.first_name.label }}</label>
-            <div class="control">
-                {{ form.first_name }}
-            </div>
+    <div class="columns is-centered">
+        <div class="column is-one-quarter">
+            <!-- TODO edit form style and handle error input on user registration (ex: wrong password input) -->
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="field">
+                    <label class="label">{{ form.first_name.label }}</label>
+                    <div class="control">
+                        {{ form.first_name }}
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">{{ form.last_name.label }}</label>
+                    <div class="control">
+                        {{ form.last_name }}
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">{{ form.email.label }}</label>
+                    <div class="control">
+                        {{ form.email }}
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">{{ form.username.label }}</label>
+                    <div class="control">
+                        {{ form.username }}
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">{{ form.password1.label }}</label>
+                    <div class="control">
+                        {{ form.password1 }}
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">{{ form.password2.label }}</label>
+                    <div class="control">
+                        {{ form.password2 }}
+                    </div>
+                </div>
+                <div class="buttons">
+                    <input type="submit" value="Create User" class="button is-success">
+                </div>
+                
+            </form>
         </div>
-        <div class="field">
-            <label class="label">{{ form.last_name.label }}</label>
-            <div class="control">
-                {{ form.last_name }}
-            </div>
-        </div>
-        <div class="field">
-            <label class="label">{{ form.email.label }}</label>
-            <div class="control">
-                {{ form.email }}
-            </div>
-        </div>
-        <div class="field">
-            <label class="label">{{ form.username.label }}</label>
-            <div class="control">
-                {{ form.username }}
-            </div>
-        </div>
-        <div class="field">
-            <label class="label">{{ form.password1.label }}</label>
-            <div class="control">
-                {{ form.password1 }}
-            </div>
-        </div>
-        <div class="field">
-            <label class="label">{{ form.password2.label }}</label>
-            <div class="control">
-                {{ form.password2 }}
-            </div>
-        </div>
-        <div class="buttons">
-            <input type="submit" value="Create User" class="button is-success">
-        </div>
-        
-    </form>
+    </div>
+    
 </section>
 
 {% endblock %}
