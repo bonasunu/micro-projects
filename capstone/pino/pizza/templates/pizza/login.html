@@ -1,0 +1,39 @@
+{% extends 'pizza/base.html' %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block body %}
+<section class="section">
+    <div class="columns is-centered">
+        <div class="column is-one-quarter">
+            <!-- TODO edit form style and handle error input on user registration (ex: wrong password input) -->
+            <form action="" method="POST">
+                {% csrf_token %}
+                
+                </div>
+                <div class="field">
+                    <label class="label">{{ form.username.label }}</label>
+                    <div class="control">
+                        {{ form.username }}
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">{{ form.password1.label }}</label>
+                    <div class="control">
+                        {{ form.password1 }}
+                    </div>
+                </div>
+                
+                <div class="buttons">
+                    <input type="submit" value="Login" class="button is-success">
+                </div>
+                
+            </form>
+        </div>
+    </div>
+    
+</section>
+
+{% endblock %}
