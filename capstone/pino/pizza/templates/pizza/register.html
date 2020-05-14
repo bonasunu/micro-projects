@@ -50,7 +50,15 @@ Register
                 <div class="buttons">
                     <input type="submit" value="Create User" class="button is-success">
                 </div>
-                
+                <p class="subtitle is-danger">
+                    {{ form.first_name.errors }}
+                    {{ form.last_name.errors }}
+                    {{ form.email.errors }}
+                    {{ form.username.errors }}
+                    {{ form.password1.errors }}
+                    {{ form.password2.errors }}
+                </p>
+                <br>
                 <p class="subtitle">Already have account? <a href="{% url 'login' %}">Login</a></p>
             </form>
         </div>
