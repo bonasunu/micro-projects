@@ -20,7 +20,7 @@ def find_us(request):
     return render(request, "pizza/find-us.html")
 
 def register_user(request):
-    TODO edit form style and handle error input on user registration (ex: wrong password input)
+    # TODO edit form style and handle error input on user registration (ex: wrong password input)
     form = RegisterUser()
 
     if request.method == "POST":

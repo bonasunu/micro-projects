@@ -3,8 +3,28 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
 class RegisterUser(UserCreationForm):
-    email = forms.EmailField(required=True)
+    email = forms.EmailField(
+        required=True, 
+        widget=forms.EmailInput(attrs={'class':"input"})
+        )
+    username = forms.CharField(
+        widget=forms.TextInput(attrs={'class':'input'})
+    )
+    first_name = forms.CharField(
+        widget=forms.TextInput(attrs={'class':'input'})
+    )
 
+    last_name = forms.CharField(
+        widget=forms.TextInput(attrs={'class':'input'})
+    )
+
+    password1 = forms.CharField(
+        widget=forms.PasswordInput(attrs={'class':'input'})
+    )
+
+    password2 = forms.CharField(
+        widget=forms.PasswordInput(attrs={'class':'input'})
+    )
     class Meta:
         model = User
         fields = (
@@ -27,4 +47,4 @@ class RegisterUser(UserCreationForm):
 
         return user
 
-    TODO edit form style and handle error input on user registration (ex: wrong password input)
+    #  TODO edit form style and handle error input on user registration (ex: wrong password input)
