@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from pizza.forms import RegisterUser
 from .models import Pizza
 from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout 
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def index(request):
@@ -14,6 +16,7 @@ def menu(request):
     }
     return render(request, "pizza/menu.html", context)
 
+@login_required(login_url='login')
 def order(request):
     return render(request, "pizza/order.html")
 
@@ -37,4 +40,23 @@ def register_user(request):
     return render(request, "pizza/register.html", context)
 
 def user_login(request):
+
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('pass')
+
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            return redirect('menu')
+        else:
+            messages.info(request, 'Username OR password is incorrect')
+            return render(request, 'pizza/login.html')
+
     return render(request, 'pizza/login.html')
+
+@login_required(login_url='login')
+def user_logout(request):
+    logout(request)
+    return redirect('login')
