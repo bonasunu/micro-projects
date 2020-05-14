@@ -47,4 +47,4 @@ class RegisterUser(UserCreationForm):
 
         return user
 
-    #  TODO edit form style and handle error input on user registration (ex: wrong password input)
+    

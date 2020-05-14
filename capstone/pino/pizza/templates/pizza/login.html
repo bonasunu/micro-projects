@@ -12,17 +12,16 @@ Login
             <form action="" method="POST">
                 {% csrf_token %}
                 
-                </div>
                 <div class="field">
-                    <label class="label">{{ form.username.label }}</label>
+                    <label class="label">Username</label>
                     <div class="control">
-                        {{ form.username }}
+                        <input type="text" class="input">
                     </div>
                 </div>
                 <div class="field">
-                    <label class="label">{{ form.password1.label }}</label>
+                    <label class="label">Password</label>
                     <div class="control">
-                        {{ form.password1 }}
+                        <input type="password" name="pass" id="pass" class="input">
                     </div>
                 </div>
                 
