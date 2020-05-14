@@ -11,6 +11,9 @@ Login
             <!-- TODO edit form style and handle error input on user registration (ex: wrong password input) -->
             <form action="" method="POST">
                 {% csrf_token %}
+                {% for message in messages %}
+                    <p class="subtitle">{{ message }}</p>
+                {% endfor %}
                 <p class="subtitle">Login to your account</p>
                 <div class="field">
                     <label class="label">Username</label>

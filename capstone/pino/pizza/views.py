@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from pizza.forms import RegisterUser
 from .models import Pizza
+from django.contrib import messages
 
 # Create your views here.
 def index(request):
@@ -27,7 +28,9 @@ def register_user(request):
         form = RegisterUser(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('/menu')
+            user = form.cleaned_data.get('username')
+            messages.success(request, 'Account was created for ' + user)
+            return redirect('login')
     
     context = {'form': form}
 
