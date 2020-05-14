@@ -24,39 +24,44 @@ def find_us(request):
     return render(request, "pizza/find-us.html")
 
 def register_user(request):
+    if request.user.is_authenticated:
+        return redirect('menu')
+    else:
     
-    form = RegisterUser()
+        form = RegisterUser()
 
-    if request.method == "POST":
-        form = RegisterUser(request.POST)
-        if form.is_valid():
-            form.save()
-            user = form.cleaned_data.get('username')
-            messages.success(request, 'Account was created for ' + user)
-            return redirect('login')
-    
-    context = {'form': form}
+        if request.method == "POST":
+            form = RegisterUser(request.POST)
+            if form.is_valid():
+                form.save()
+                user = form.cleaned_data.get('username')
+                messages.success(request, 'Account was created for ' + user)
+                return redirect('login')
+        
+        context = {'form': form}
 
-    return render(request, "pizza/register.html", context)
+        return render(request, "pizza/register.html", context)
 
 def user_login(request):
+    if request.user.is_authenticated:
+        return redirect('menu')
+    else:
 
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('pass')
+        if request.method == 'POST':
+            username = request.POST.get('username')
+            password = request.POST.get('pass')
 
-        user = authenticate(request, username=username, password=password)
+            user = authenticate(request, username=username, password=password)
 
-        if user is not None:
-            login(request, user)
-            return redirect('menu')
-        else:
-            messages.info(request, 'Username OR password is incorrect')
-            return render(request, 'pizza/login.html')
+            if user is not None:
+                login(request, user)
+                return redirect('menu')
+            else:
+                messages.info(request, 'Username OR password is incorrect')
+                return render(request, 'pizza/login.html')
 
-    return render(request, 'pizza/login.html')
+        return render(request, 'pizza/login.html')
 
-@login_required(login_url='login')
 def user_logout(request):
     logout(request)
     return redirect('login')
