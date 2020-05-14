@@ -36,5 +36,5 @@ def register_user(request):
 
     return render(request, "pizza/register.html", context)
 
-def login(request):
+def user_login(request):
     return render(request, 'pizza/login.html')
