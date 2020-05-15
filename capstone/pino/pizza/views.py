@@ -65,3 +65,9 @@ def user_login(request):
 def user_logout(request):
     logout(request)
     return redirect('login')
+
+def account_info(request):
+    if request.user.is_authenticated:
+        return render(request, 'pizza/account.html')
+    else:
+        return redirect('login')
