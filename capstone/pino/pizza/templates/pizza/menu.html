@@ -8,12 +8,101 @@ Menu
 <section class="section">
     <div class="container">
         <h1 class="title">Menu</h1>
-        <h2 id="pizza" class="subtitle">Pizza</h2>
-        <p>{{ pizza }}</p>
-        <h2 id="toppings" class="subtitle">Toppings</h2>
-        <h2 id="salads" class="subtitle">Salads</h2>
-        <h2 id="platters" class="subtitle">Platters</h2>
-        <h2 id="pasta" class="subtitle">Pasta</h2>
+        <br>
+        <div class="columns is-centered">
+            <div class="column is-half">
+                <h2 id="pizza" class="subtitle">Pizza</h2>
+                    <table class="table is-hoverable is-fullwidth">
+                        <thead>
+                            <tr>
+                                <th>Pizza Menu</th>
+                                <th>Pizza Type</th>
+                                <th>Size</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for p in pizza %}
+                                <tr>
+                                    <td>{{ p.pizza_menu }}</td>
+                                    <td>{{ p.pizza_type }}</td>
+                                    <td>{{ p.size }}</td>
+                                    <td>{{ p.price }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <h2 id="toppings" class="subtitle">Toppings</h2>
+                    <table class="table is-hoverable">
+                        <thead>
+                            <tr>
+                                <th>Toppings</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for topping in toppings %}
+                                <tr>
+                                    <td>{{ topping.topping }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <h2 id="salads" class="subtitle">Salads</h2>
+                    <table class="table is-hoverable is-fullwidth">
+                        <thead>
+                            <tr>
+                                <th>Salads</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for salad in salads %}
+                                <tr>
+                                    <td>{{ salad.salad }}</td>
+                                    <td>{{ salad.price }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <h2 id="platters" class="subtitle">Platters</h2>
+                    <table class="table is-hoverable is-fullwidth">
+                        <thead>
+                            <tr>
+                                <th>Platters</th>
+                                <th>Size</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for platter in platters %}
+                                <tr>
+                                    <td>{{ platter.platter }}</td>
+                                    <td>{{ platter.size }}</td>
+                                    <td>{{ platter.price }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <h2 id="pasta" class="subtitle">Pasta</h2>
+                    <table class="table is-hoverable is-fullwidth">
+                        <thead>
+                            <tr>
+                                <th>Pasta</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for p in pasta %}
+                                <tr>
+                                    <td>{{ p.menu }}</td>
+                                    <td>{{ p.price }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+            </div>
+        </div>
+        
     </div>
     
 </section>

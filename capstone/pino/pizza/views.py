@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from pizza.forms import RegisterUser
-from .models import Pizza
+from .models import Pizza, Toppings, Salads, Platters, Pasta
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout 
 from django.contrib.auth.decorators import login_required
@@ -12,7 +12,11 @@ def index(request):
 
 def menu(request):
     context = {
-        "pizza": Pizza.objects.all()
+        "pizza": Pizza.objects.all(),
+        "toppings": Toppings.objects.all(),
+        "salads": Salads.objects.all(),
+        "platters": Platters.objects.all(),
+        "pasta": Pasta.objects.all(),
     }
     return render(request, "pizza/menu.html", context)
 
