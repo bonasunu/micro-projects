@@ -71,3 +71,9 @@ def account_info(request):
         return render(request, 'pizza/account.html')
     else:
         return redirect('login')
+
+def shopping_cart(request):
+    if request.user.is_authenticated:
+        return render(request, 'pizza/cart.html')
+    else:
+        return redirect('login')   

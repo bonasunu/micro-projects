@@ -55,6 +55,9 @@
                 <div class="navbar-item">
                   <div class="buttons">
                     {% if user.is_authenticated %}
+                    <a class="button is-info" href="{% url 'cart' %}">
+                      <strong>Cart</strong>
+                    </a>
                     <a class="button is-success" href="{% url 'account-info' %}">
                       <strong>Account</strong>
                     </a>
