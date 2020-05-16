@@ -32,7 +32,7 @@ Order
                                     <td>{{ p.size }}</td>
                                     <td>{{ p.price }}</td>
                                     <td>
-                                        <input type="number" id="quantity" name="quantity" min="0">
+                                        <input type="number" id="quantity" name="quantity" min="0" oninput="addItems()" data-price="{{ p.price }}">
                                     </td>
                                 </tr>
                             {% endfor %}
@@ -134,12 +134,12 @@ Order
                             {% endfor %}
                         </tbody>
                         <tfoot>
-                            <tr>
+                            <tr id="total_price">
                                 <th>Total Price</th>
                                 <th></th>
                                 <th></th>
                                 <th></th>
-                                <th># 25 USD</th>
+                                <th></th>
 
                             </tr>
                         </tfoot>
