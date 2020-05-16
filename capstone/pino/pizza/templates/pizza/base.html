@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,30 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+    <link rel="stylesheet" href="{% static 'pizza/main.css' %}">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-    <style>
-        body {
-            display: flex;
-            min-height: 100vh;
-            flex-direction: column;
-        }
-
-        section {
-            flex: 1;
-        }
-        .navbar {
-            border-bottom: 2px solid black;
-        }
-
-        .navbar-item:hover {
-            color: #E16120 !important;
-        }
-
-        #quantity {
-          width: 60px;
-        }
-
-    </style>
+    <script src="{% static 'pizza/main.js' %}"></script>
+    
 </head>
 <body>
     <head>
