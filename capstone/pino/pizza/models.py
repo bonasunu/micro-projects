@@ -70,3 +70,30 @@ class Toppings(models.Model):
     )
 
     topping = models.CharField(max_length=64, choices=PIZZA_TOPPINGS)
+
+class Menu(models.Model):
+    MENU_CATEGORY = (
+        ("pizza", "pizza"),
+        ("pasta", 'pasta'),
+        ("subs", "subs"),
+        ("platters", 'platters'),
+        ("toppings", "toppings"),
+        ("salads", "salads")
+    )
+
+    MENU_SIZE = (
+        ("Small", "Small"),
+        ("Large", "Large")
+    )
+
+    MENU_PIZZA_TYPE = (
+        ("Reguler", "Reguler"),
+        ("Sicilian","Sicilian")
+    )
+    
+    menu_id = models.AutoField(primary_key=True)
+    menu_category = models.CharField(max_length=10, choices=MENU_CATEGORY)
+    menu_name = models.CharField(max_length=64)
+    menu_pizza_type = models.CharField(max_length=8, choices=MENU_PIZZA_TYPE, blank=True)
+    size = models.CharField(max_length=6, choices=MENU_SIZE, blank=True)
+    price = models.FloatField()
