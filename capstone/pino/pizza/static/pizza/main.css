@@ -15,6 +15,6 @@ section {
     color: #E16120 !important;
 }
 
-#quantity {
+.quantity {
   width: 60px;
 }

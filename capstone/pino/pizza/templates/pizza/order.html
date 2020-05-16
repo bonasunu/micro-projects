@@ -11,8 +11,11 @@ Order
         <br>
         <div class="columns is-centered">
             <div class="column is-half">
+                <form action="" method="POST">
+                    {% csrf_token %}
                     <table class="table is-hoverable is-fullwidth">
                         <!-- #Pizza -->
+                        <!-- #region 
                         <thead>
                             <tr>
                                 <th>Pizza Menu</th>
@@ -36,7 +39,6 @@ Order
                                 </tr>
                             {% endfor %}
                         </tbody>
-                        <!-- #Topping -->
                         <thead>
                             <tr>
                                 <th>Toppings</th>
@@ -60,7 +62,6 @@ Order
                                 </tr>
                             {% endfor %}
                         </tbody>
-                        <!-- #salads -->
                         <thead>
                             <tr>
                                 <th>Salads</th>
@@ -84,7 +85,6 @@ Order
                                 </tr>
                             {% endfor %}
                         </tbody>
-                        <!-- #Platters -->
                         <thead>
                             <tr>
                                 <th>Platters</th>
@@ -108,7 +108,7 @@ Order
                                 </tr>
                             {% endfor %}
                         </tbody>
-                        <!-- #Pasta -->
+                        
                         <thead>
                             <tr>
                                 <th>Pasta</th>
@@ -132,6 +132,31 @@ Order
                                 </tr>
                             {% endfor %}
                         </tbody>
+                        -->
+                        <thead>
+                            <tr>
+                                <th>Menu</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in menu %}
+                                <tr>
+                                    <td>{{ item.menu_name }}</td>
+                                    <td>{{ item.menu_pizza_type}}</td>
+                                    <td>{{ item.size }}</td>
+                                    <td>{{ item.price }}</td>
+                                    <td>
+                                        <input type="number" id="{{ item.menu_id }}" name="quantity" min="0" class="quantity">
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+
                         <tfoot>
                             <tr id="total_price">
                                 <th>Total Price</th>
@@ -144,10 +169,14 @@ Order
                         </tfoot>
                     </table>
                     <div class="buttons">
+                        <!-- #region 
                         <a class="button is-success" href="{% url 'cart' %}">
                           <strong>Add to cart</strong>
-                        </a>
+                        </a> -->
+                        
+                        <input type="submit" value="Add to cart" class="button is-success">
                     </div>
+                </form>
             </div>
         </div>
         

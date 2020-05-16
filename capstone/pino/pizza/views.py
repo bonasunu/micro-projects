@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from pizza.forms import RegisterUser
-from .models import Pizza, Toppings, Salads, Platters, Pasta
+from .models import Pizza, Toppings, Salads, Platters, Pasta, Menu
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout 
 from django.contrib.auth.decorators import login_required
@@ -17,17 +17,28 @@ def menu(request):
         "salads": Salads.objects.all(),
         "platters": Platters.objects.all(),
         "pasta": Pasta.objects.all(),
+        "menu": Menu.objects.all(),
     }
     return render(request, "pizza/menu.html", context)
 
 @login_required(login_url='login')
 def order(request):
+
+    if request.method == 'POST':
+        order = request.POST.items()
+        return redirect('cart')
+        # You need
+        # menu_id
+        # price
+        # quantity
+
     context = {
         "pizza": Pizza.objects.all(),
         "toppings": Toppings.objects.all(),
         "salads": Salads.objects.all(),
         "platters": Platters.objects.all(),
         "pasta": Pasta.objects.all(),
+        "menu": Menu.objects.all(),
     }
     return render(request, "pizza/order.html", context)
 
