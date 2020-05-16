@@ -7,8 +7,152 @@ Order
 {% block body %}
 <section class="section">
     <div class="container">
-        <h1 class="title">Order
-        </h1>
+        <h1 class="title">Order</h1>
+        <br>
+        <div class="columns is-centered">
+            <div class="column is-half">
+                <h2 id="pizza" class="subtitle">Pizza</h2>
+                    <table class="table is-hoverable is-fullwidth">
+                        <!-- #Pizza -->
+                        <thead>
+                            <tr>
+                                <th>Pizza Menu</th>
+                                <th>Type</th>
+                                <th>Size</th>
+                                <th>Price</th>
+                                <th class="is-one-fifth">Quantity</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for p in pizza %}
+                                <tr>
+                                    <td>{{ p.pizza_menu }}</td>
+                                    <td>{{ p.pizza_type }}</td>
+                                    <td>{{ p.size }}</td>
+                                    <td>{{ p.price }}</td>
+                                    <td>
+                                        <input type="number" id="quantity" name="quantity" min="0">
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                        <!-- #Topping -->
+                        <thead>
+                            <tr>
+                                <th>Toppings</th>
+                                <th>Type</th>
+                                <th>Size</th>
+                                <th>Price</th>
+                                <th class="is-one-fifth">Quantity</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for topping in toppings %}
+                                <tr>
+                                    <td>{{ topping.topping }}</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>
+                                        <input type="number" id="quantity" name="quantity" min="0">
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                        <!-- #salads -->
+                        <thead>
+                            <tr>
+                                <th>Salads</th>
+                                <th>Type</th>
+                                <th>Size</th>
+                                <th>Price</th>
+                                <th class="is-one-fifth">Quantity</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for salad in salads %}
+                                <tr>
+                                    <td>{{ salad.salad }}</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>{{ salad.price }}</td>
+                                    <td>
+                                        <input type="number" id="quantity" name="quantity" min="0">
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                        <!-- #Platters -->
+                        <thead>
+                            <tr>
+                                <th>Platters</th>
+                                <th>Type</th>
+                                <th>Size</th>
+                                <th>Price</th>
+                                <th class="is-one-fifth">Quantity</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for platter in platters %}
+                                <tr>
+                                    <td>{{ platter.platter }}</td>
+                                    <td>-</td>
+                                    <td>{{ platter.size }}</td>
+                                    <td>{{ platter.price }}</td>
+                                    <td>
+                                        <input type="number" id="quantity" name="quantity" min="0">
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                        <!-- #Pasta -->
+                        <thead>
+                            <tr>
+                                <th>Pasta</th>
+                                <th>Type</th>
+                                <th>Size</th>
+                                <th>Price</th>
+                                <th class="is-one-fifth">Quantity</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for p in pasta %}
+                                <tr>
+                                    <td>{{ p.menu }}</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>{{ p.price }}</td>
+                                    <td>
+                                        <input type="number" id="quantity" name="quantity" min="0">
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Total Price</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th># 25 USD</th>
+
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <div class="buttons">
+                        <a class="button is-success" href="{% url 'cart' %}">
+                          <strong>Add to cart</strong>
+                        </a>
+                    </div>
+            </div>
+        </div>
+        
     </div>
+    
 </section>
 {% endblock %}

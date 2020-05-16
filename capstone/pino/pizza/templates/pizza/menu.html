@@ -12,94 +12,103 @@ Menu
         <div class="columns is-centered">
             <div class="column is-half">
                 <h2 id="pizza" class="subtitle">Pizza</h2>
-                    <table class="table is-hoverable is-fullwidth">
-                        <thead>
+                <table class="table is-hoverable is-fullwidth">
+                    <!-- #Pizza -->
+                    <thead>
+                        <tr>
+                            <th>Pizza Menu</th>
+                            <th>Type</th>
+                            <th>Size</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for p in pizza %}
                             <tr>
-                                <th>Pizza Menu</th>
-                                <th>Pizza Type</th>
-                                <th>Size</th>
-                                <th>Price</th>
+                                <td>{{ p.pizza_menu }}</td>
+                                <td>{{ p.pizza_type }}</td>
+                                <td>{{ p.size }}</td>
+                                <td>{{ p.price }}</td>                                
                             </tr>
-                        </thead>
-                        <tbody>
-                            {% for p in pizza %}
-                                <tr>
-                                    <td>{{ p.pizza_menu }}</td>
-                                    <td>{{ p.pizza_type }}</td>
-                                    <td>{{ p.size }}</td>
-                                    <td>{{ p.price }}</td>
-                                </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                    <h2 id="toppings" class="subtitle">Toppings</h2>
-                    <table class="table is-hoverable">
-                        <thead>
+                        {% endfor %}
+                    </tbody>
+                    <!-- #Topping -->
+                    <thead>
+                        <tr>
+                            <th>Toppings</th>
+                            <th>Type</th>
+                            <th>Size</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for topping in toppings %}
                             <tr>
-                                <th>Toppings</th>
+                                <td>{{ topping.topping }}</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>                                
                             </tr>
-                        </thead>
-                        <tbody>
-                            {% for topping in toppings %}
-                                <tr>
-                                    <td>{{ topping.topping }}</td>
-                                </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                    <h2 id="salads" class="subtitle">Salads</h2>
-                    <table class="table is-hoverable is-fullwidth">
-                        <thead>
+                        {% endfor %}
+                    </tbody>
+                    <!-- #salads -->
+                    <thead>
+                        <tr>
+                            <th>Salads</th>
+                            <th>Type</th>
+                            <th>Size</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for salad in salads %}
                             <tr>
-                                <th>Salads</th>
-                                <th>Price</th>
+                                <td>{{ salad.salad }}</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>{{ salad.price }}</td>                                
                             </tr>
-                        </thead>
-                        <tbody>
-                            {% for salad in salads %}
-                                <tr>
-                                    <td>{{ salad.salad }}</td>
-                                    <td>{{ salad.price }}</td>
-                                </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                    <h2 id="platters" class="subtitle">Platters</h2>
-                    <table class="table is-hoverable is-fullwidth">
-                        <thead>
+                        {% endfor %}
+                    </tbody>
+                    <!-- #Platters -->
+                    <thead>
+                        <tr>
+                            <th>Platters</th>
+                            <th>Type</th>
+                            <th>Size</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for platter in platters %}
                             <tr>
-                                <th>Platters</th>
-                                <th>Size</th>
-                                <th>Price</th>
+                                <td>{{ platter.platter }}</td>
+                                <td>-</td>
+                                <td>{{ platter.size }}</td>
+                                <td>{{ platter.price }}</td>                
                             </tr>
-                        </thead>
-                        <tbody>
-                            {% for platter in platters %}
-                                <tr>
-                                    <td>{{ platter.platter }}</td>
-                                    <td>{{ platter.size }}</td>
-                                    <td>{{ platter.price }}</td>
-                                </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                    <h2 id="pasta" class="subtitle">Pasta</h2>
-                    <table class="table is-hoverable is-fullwidth">
-                        <thead>
+                        {% endfor %}
+                    </tbody>
+                    <!-- #Pasta -->
+                    <thead>
+                        <tr>
+                            <th>Pasta</th>
+                            <th>Type</th>
+                            <th>Size</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for p in pasta %}
                             <tr>
-                                <th>Pasta</th>
-                                <th>Price</th>
+                                <td>{{ p.menu }}</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>{{ p.price }}</td>
                             </tr>
-                        </thead>
-                        <tbody>
-                            {% for p in pasta %}
-                                <tr>
-                                    <td>{{ p.menu }}</td>
-                                    <td>{{ p.price }}</td>
-                                </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
+                        {% endfor %}
+                    </tbody>
+                </table>
             </div>
         </div>
         

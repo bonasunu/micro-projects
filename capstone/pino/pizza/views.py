@@ -22,7 +22,14 @@ def menu(request):
 
 @login_required(login_url='login')
 def order(request):
-    return render(request, "pizza/order.html")
+    context = {
+        "pizza": Pizza.objects.all(),
+        "toppings": Toppings.objects.all(),
+        "salads": Salads.objects.all(),
+        "platters": Platters.objects.all(),
+        "pasta": Pasta.objects.all(),
+    }
+    return render(request, "pizza/order.html", context)
 
 def find_us(request):
     return render(request, "pizza/find-us.html")
