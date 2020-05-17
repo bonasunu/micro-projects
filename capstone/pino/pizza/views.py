@@ -25,8 +25,16 @@ def menu(request):
 def order(request):
 
     if request.method == 'POST':
-        order = request.POST.items()
-        return redirect('cart')
+        order = {}
+        items = Menu.objects.all()
+        for item in items:
+            name = str(item.menu_id)
+            order[item.menu_id] = request.POST.get(name)
+
+        context = {
+            "order": order
+        }
+        return render(request, "pizza/cart.html", context)
         # You need
         # menu_id
         # price
