@@ -8,7 +8,14 @@ Cart
 <section class="section">
     <div class="container">
         <h1 class="title">Your order summary</h1>
-        {{ order }}
+        {% for key, value in order.items %}
+            {% for item in menu %}
+                {% if key == item.menu_id %}
+                    <h2 class="subtitle">{{ item.menu_name }} ({{ item.menu_category }})</h2>
+                    <h2 class="subtitle">{{ value }}</h2>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
     </div>
     
 </section>

@@ -32,7 +32,8 @@ def order(request):
             order[item.menu_id] = request.POST.get(name)
 
         context = {
-            "order": order
+            "order": order,
+            "menu": Menu.objects.all(),
         }
         return render(request, "pizza/cart.html", context)
         # You need
