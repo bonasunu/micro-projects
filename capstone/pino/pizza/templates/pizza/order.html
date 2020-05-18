@@ -14,125 +14,7 @@ Order
                 <form action="" method="POST">
                     {% csrf_token %}
                     <table class="table is-hoverable is-fullwidth">
-                        <!-- #Pizza -->
-                        <!-- #region 
-                        <thead>
-                            <tr>
-                                <th>Pizza Menu</th>
-                                <th>Type</th>
-                                <th>Size</th>
-                                <th>Price</th>
-                                <th>Quantity</th>
 
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for p in pizza %}
-                                <tr>
-                                    <td>{{ p.pizza_menu }}</td>
-                                    <td>{{ p.pizza_type }}</td>
-                                    <td>{{ p.size }}</td>
-                                    <td>{{ p.price }}</td>
-                                    <td>
-                                        <input type="number" id="quantity" name="quantity" min="0" oninput="addItems()" data-price="{{ p.price }}">
-                                    </td>
-                                </tr>
-                            {% endfor %}
-                        </tbody>
-                        <thead>
-                            <tr>
-                                <th>Toppings</th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for topping in toppings %}
-                                <tr>
-                                    <td>{{ topping.topping }}</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>
-                                        <input type="number" id="quantity" name="quantity" min="0">
-                                    </td>
-                                </tr>
-                            {% endfor %}
-                        </tbody>
-                        <thead>
-                            <tr>
-                                <th>Salads</th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for salad in salads %}
-                                <tr>
-                                    <td>{{ salad.salad }}</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>{{ salad.price }}</td>
-                                    <td>
-                                        <input type="number" id="quantity" name="quantity" min="0">
-                                    </td>
-                                </tr>
-                            {% endfor %}
-                        </tbody>
-                        <thead>
-                            <tr>
-                                <th>Platters</th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for platter in platters %}
-                                <tr>
-                                    <td>{{ platter.platter }}</td>
-                                    <td>-</td>
-                                    <td>{{ platter.size }}</td>
-                                    <td>{{ platter.price }}</td>
-                                    <td>
-                                        <input type="number" id="quantity" name="quantity" min="0">
-                                    </td>
-                                </tr>
-                            {% endfor %}
-                        </tbody>
-                        
-                        <thead>
-                            <tr>
-                                <th>Pasta</th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for p in pasta %}
-                                <tr>
-                                    <td>{{ p.menu }}</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>{{ p.price }}</td>
-                                    <td>
-                                        <input type="number" id="quantity" name="quantity" min="0">
-                                    </td>
-                                </tr>
-                            {% endfor %}
-                        </tbody>
-                        -->
                         <thead>
                             <tr>
                                 <th>Menu</th>
@@ -168,12 +50,7 @@ Order
                             </tr>
                         </tfoot>
                     </table>
-                    <div class="buttons">
-                        <!-- #region 
-                        <a class="button is-success" href="{% url 'cart' %}">
-                          <strong>Add to cart</strong>
-                        </a> -->
-                        
+                    <div class="buttons">                        
                         <input type="submit" value="Add to cart" class="button is-success">
                     </div>
                 </form>
