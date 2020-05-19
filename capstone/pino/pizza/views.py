@@ -117,9 +117,17 @@ def account_info(request):
 def shopping_cart(request):
     if request.user.is_authenticated:
 
+        try:
+            user_order[request.user.username]
+        except KeyError:
+            return redirect('order')
         context = {
-            "user_order": user_order[request.user.username],
+                "user_order": user_order[request.user.username],
         }
+
         return render(request, 'pizza/cart.html', context)
     else:
         return redirect('login')   
+
+def payment(request):
+    return render(request, 'pizza/payment.html')

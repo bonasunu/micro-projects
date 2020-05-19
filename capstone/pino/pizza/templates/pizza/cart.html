@@ -11,7 +11,7 @@ Cart
 
         <div class="columns is-centered">
             <div class="column is-half">
-                <form action="" method="post">
+                <form action="{% url 'payment' %}" method="post">
                     {% csrf_token %}
                     <h2 class="subtitle">Hi {{ user }}, this is your order</h2>
                     <div class="columns is-centered">
