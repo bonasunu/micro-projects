@@ -5,6 +5,10 @@ from .models import Pizza, Toppings, Salads, Platters, Pasta, Menu
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout 
 from django.contrib.auth.decorators import login_required
+import math
+
+# Variables on server-side
+user_order = {}
 
 # Create your views here.
 def index(request):
@@ -29,13 +33,16 @@ def order(request):
         items = Menu.objects.all()
         for item in items:
             name = str(item.menu_id)
-            order[item.menu_id] = request.POST.get(name)
+            qty = math.floor(float(request.POST.get(name)))
 
-        context = {
-            "order": order,
-            "menu": Menu.objects.all(),
-        }
-        return render(request, "pizza/cart.html", context)
+            user_order[item.menu_id] = {
+                "menu_id": name,
+                "qty": qty,
+                "item_price": item.price,
+                "total_price": math.floor(float(request.POST.get(name))) * item.price
+            }
+
+        return redirect('cart')
         # You need
         # menu_id
         # price
@@ -105,6 +112,9 @@ def account_info(request):
 
 def shopping_cart(request):
     if request.user.is_authenticated:
-        return render(request, 'pizza/cart.html')
+        context = {
+            "user_order": user_order,
+        }
+        return render(request, 'pizza/cart.html', context)
     else:
         return redirect('login')   

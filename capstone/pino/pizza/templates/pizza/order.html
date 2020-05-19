@@ -18,9 +18,9 @@ Order
                         <thead>
                             <tr>
                                 <th>Menu</th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
+                                <th>Type</th>
+                                <th>Size</th>
+                                <th>Price</th>
                                 <th></th>
 
                             </tr>
@@ -33,7 +33,7 @@ Order
                                     <td>{{ item.size }}</td>
                                     <td>{{ item.price }}</td>
                                     <td>
-                                        <input type="number" id="{{ item.menu_id }}" name="{{ item.menu_id }}" min="0" class="quantity">
+                                        <input type="number" id="{{ item.menu_id }}" name="{{ item.menu_id }}" min="0" class="quantity" value="0">
                                     </td>
                                 </tr>
                             {% endfor %}

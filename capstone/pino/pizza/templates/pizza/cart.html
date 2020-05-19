@@ -8,14 +8,43 @@ Cart
 <section class="section">
     <div class="container">
         <h1 class="title">Your order summary</h1>
-        {% for key, value in order.items %}
-            {% for item in menu %}
-                {% if key == item.menu_id %}
-                    <h2 class="subtitle">{{ item.menu_name }} ({{ item.menu_category }})</h2>
-                    <h2 class="subtitle">{{ value }}</h2>
-                {% endif %}
-            {% endfor %}
-        {% endfor %}
+
+        <div class="columns is-centered">
+            <div class="column is-half">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {% for key, value in order.items %}
+                    {% for item in menu %}
+                        {% if key == item.menu_id %}
+                            <table class="table is-hoverable is-fullwidth">
+                                <thead>
+                                    <tr>
+                                        <th>Menu</th>
+                                        <th>Item price</th>
+                                        <th>Quantity</th>
+                                        <th>Total Price</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr id="orders" onload="totalOrders('{{ value }}', '{{ item.price }}')">
+                                        <td>{{ item.menu_name }}</td>
+                                        <td>{{ value }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        {% endif %}
+                    {% endfor %}
+                    {% endfor %}
+                <div class="buttons">                        
+                    <input type="submit" value="Pay Now" class="button is-success">
+                </div>
+                
+                </form>
+                <p>
+                    {{ user_order }}
+                </p>
+            </div>
+        </div>
     </div>
     
 </section>
