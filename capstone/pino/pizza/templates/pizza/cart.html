@@ -13,36 +13,41 @@ Cart
             <div class="column is-half">
                 <form action="" method="post">
                     {% csrf_token %}
-                    {% for key, value in order.items %}
-                    {% for item in menu %}
-                        {% if key == item.menu_id %}
+                    <h2 class="subtitle">Hi {{ user }}, this is your order</h2>
+                    <div class="columns is-centered">
+                        <div class="column">
                             <table class="table is-hoverable is-fullwidth">
                                 <thead>
                                     <tr>
-                                        <th>Menu</th>
-                                        <th>Item price</th>
+                                        <th>Items</th>
                                         <th>Quantity</th>
-                                        <th>Total Price</th>
+                                        <th>Price</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr id="orders" onload="totalOrders('{{ value }}', '{{ item.price }}')">
-                                        <td>{{ item.menu_name }}</td>
-                                        <td>{{ value }}</td>
-                                    </tr>
+                                    
+                                    {% for item in user_order %}
+                                    {% if item.qty > 0 %}
+                                        <tr>
+                                            <td>{{ item.menu_name }}</td>
+                                            <td>{{ item.qty }} x {{ item.item_price }}</td>
+                                            <td>{{ item.total_price }}</td>
+                                        </tr>
+                                    {% endif %}
+                                    {% endfor %}
+                                    
                                 </tbody>
                             </table>
-                        {% endif %}
-                    {% endfor %}
-                    {% endfor %}
-                <div class="buttons">                        
-                    <input type="submit" value="Pay Now" class="button is-success">
-                </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="buttons">                        
+                        <input type="submit" value="Pay Now" class="button is-success">
+                    </div>
                 
                 </form>
-                <p>
-                    {{ user_order }}
-                </p>
+                <br>
+                <a href="{% url 'order' %}">Change order</a>
             </div>
         </div>
     </div>

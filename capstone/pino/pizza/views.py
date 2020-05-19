@@ -30,17 +30,21 @@ def order(request):
 
     if request.method == 'POST':
         order = {}
+        user_order[request.user.username] = []
         items = Menu.objects.all()
         for item in items:
             name = str(item.menu_id)
             qty = math.floor(float(request.POST.get(name)))
 
-            user_order[item.menu_id] = {
+            current_user = request.user.username
+            
+            user_order[current_user].append({
                 "menu_id": name,
+                "menu_name": item.menu_name,
                 "qty": qty,
                 "item_price": item.price,
                 "total_price": math.floor(float(request.POST.get(name))) * item.price
-            }
+            })
 
         return redirect('cart')
         # You need
@@ -112,8 +116,9 @@ def account_info(request):
 
 def shopping_cart(request):
     if request.user.is_authenticated:
+
         context = {
-            "user_order": user_order,
+            "user_order": user_order[request.user.username],
         }
         return render(request, 'pizza/cart.html', context)
     else:
