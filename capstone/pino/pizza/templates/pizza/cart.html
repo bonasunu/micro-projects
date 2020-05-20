@@ -21,7 +21,7 @@ Cart
                                     <tr>
                                         <th>Items</th>
                                         <th>Quantity</th>
-                                        <th>Price</th>
+                                        <th>Price (USD)</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -31,12 +31,18 @@ Cart
                                         <tr>
                                             <td>{{ item.menu_name }}</td>
                                             <td>{{ item.qty }} x {{ item.item_price }}</td>
-                                            <td>{{ item.total_price }}</td>
+                                            <td id="items_price">{{ item.total_price }}</td>
                                         </tr>
                                     {% endif %}
                                     {% endfor %}
-                                    
                                 </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td>Total</td>
+                                        <td></td>
+                                        <td id="total_price_all"></td>
+                                    </tr>
+                                </tfoot>
                             </table>
                         </div>
                     </div>
@@ -53,4 +59,15 @@ Cart
     </div>
     
 </section>
+<script>
+    let price = document.querySelectorAll('#items_price');
+    let total_price = 0;
+
+    for (let value of price.values()) {
+        total_price += parseFloat(value.innerHTML);
+        console.log(value);
+    };
+
+    document.querySelector('#total_price_all').innerHTML = total_price;
+</script>
 {% endblock %}
