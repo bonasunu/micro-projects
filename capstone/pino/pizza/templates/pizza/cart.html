@@ -30,7 +30,7 @@ Cart
                                     {% if item.qty > 0 %}
                                         <tr>
                                             <td>{{ item.menu_name }}</td>
-                                            <td>{{ item.qty }} x {{ item.item_price }}</td>
+                                            <td>{{ item.qty }} x $ {{ item.item_price }}</td>
                                             <td id="items_price">{{ item.total_price }}</td>
                                         </tr>
                                     {% endif %}
