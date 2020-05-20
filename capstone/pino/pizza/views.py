@@ -127,7 +127,13 @@ def shopping_cart(request):
 
         return render(request, 'pizza/cart.html', context)
     else:
-        return redirect('login')   
+        return redirect('login')
+
+    if request.method == 'POST':
+        return redirect('payment')
 
 def payment(request):
+    if request.method == 'POST':
+        return redirect('account-info')
+
     return render(request, 'pizza/payment.html')

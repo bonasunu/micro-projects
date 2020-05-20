@@ -8,7 +8,26 @@ Payment
 <section class="section">
     <div class="container">
         <h1 class="title">Payment</h1>
-        
+        <div class="columns is-centered">
+            <div class="column is-half">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                
+                    <p class="subtitle">Credit/Debit card payment</p>
+                    <div class="field">
+                        <label class="label">Name on card</label>
+                        <div class="control">
+                            <input type="text">
+                        </div>
+                    </div>
+
+                    <div class="buttons">
+                        <input type="submit" value="Process Payment" class="button is-success">
+                    </div>
+                </form>
+                
+            </div>  
+        </div>
     </div>
 </section>
 {% endblock %}
