@@ -48,7 +48,7 @@ Cart
                     </div>
                     <br>
                     <div class="buttons">                        
-                        <input type="submit" value="Pay Now" class="button is-success">
+                        <input type="submit" value="Pay Now" class="button is-success" id="pay_button">
                     </div>
                 
                 </form>
@@ -69,5 +69,10 @@ Cart
     };
 
     document.querySelector('#total_price_all').innerHTML = total_price;
+
+    if (total_price == 0) {
+        document.querySelector('#pay_button').disabled = true;
+    }
+    
 </script>
 {% endblock %}
