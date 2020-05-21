@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -97,3 +98,21 @@ class Menu(models.Model):
     menu_pizza_type = models.CharField(max_length=8, choices=MENU_PIZZA_TYPE, blank=True)
     size = models.CharField(max_length=6, choices=MENU_SIZE, blank=True)
     price = models.FloatField()
+
+class Order(models.Model):
+    PAYMENT_STATUS = (
+        ("Paid", "Paid"),
+        ("Pending", "Pending")
+    )
+
+    ORDER_STATUS = (
+        ("Pending", "Pending"),
+        ("On Process", "On Process"),
+        ("Complete","Complete")
+    )
+
+    order_id = models.AutoField(primary_key=True)
+    customer = models.ForeignKey(User, on_delete=models.CASCADE, related_name="usernames")
+    order = models.CharField(max_length=10000)
+    payment_status = models.CharField(max_length=8, choices=PAYMENT_STATUS)
+    order_status = models.CharField(max_length=10, choices=ORDER_STATUS)

@@ -1,14 +1,26 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from pizza.forms import RegisterUser
-from .models import Pizza, Toppings, Salads, Platters, Pasta, Menu
+from .models import Pizza, Toppings, Salads, Platters, Pasta, Menu, Order
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout 
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 import math
 
 # Variables on server-side
 user_order = {}
+"""
+user_order = {
+    "current_user": [
+        {"menu_id": name,
+        "menu_name": item.menu_name,
+        "qty": qty,
+        "item_price": item.price,
+        "total_price": math.floor(float(request.POST.get(name))) * item.price},
+    ]
+}
+"""
 
 # Create your views here.
 def index(request):
@@ -132,8 +144,45 @@ def shopping_cart(request):
     if request.method == 'POST':
         return redirect('payment')
 
+@login_required(login_url='login')
 def payment(request):
     if request.method == 'POST':
+        context = {
+        "var": user_order[request.user.username],
+        }
+
+        customer_order = context["var"]
+
+        order = Order()
+        order.order = ""
+
+        for item in customer_order:
+            if item['qty'] > 0:
+                order.order += " (" + item['menu_name'] + " - Qty : " + str(item['qty']) +") "
+
+        order.customer = request.user
+        order.payment_status = "Paid"
+        order.save()
+        '''
+        order = Order()
+        order.order = ""
+
+        current_user = request.user.username
+        customer_order = user_order
+
+        for item in customer_order[current_user]:
+            order.order += " (" + item['menu_name'] + " - Qty : " + item['qty'] +") "
+
+        order.customer = request.user.username
+        order.payment_status = "Paid"
+        order.order_id = "On Process"
+        order.save()
+        '''
+
         return redirect('account-info')
 
-    return render(request, 'pizza/payment.html')
+    context = {
+        "var": user_order[request.user.username],
+    }
+
+    return render(request, 'pizza/payment.html', context)
