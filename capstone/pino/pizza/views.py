@@ -146,6 +146,15 @@ def shopping_cart(request):
 @login_required(login_url='login')
 def payment(request):
     if request.method == 'POST':
+        try:
+            context = {
+            "var": user_order[request.user.username],
+            }
+
+            customer_order = context["var"]
+        except KeyError:
+            return redirect('order')
+
         context = {
         "var": user_order[request.user.username],
         }
@@ -162,23 +171,17 @@ def payment(request):
         order.customer = request.user
         order.payment_status = "Paid"
         order.save()
-        '''
-        order = Order()
-        order.order = ""
-
-        current_user = request.user.username
-        customer_order = user_order
-
-        for item in customer_order[current_user]:
-            order.order += " (" + item['menu_name'] + " - Qty : " + item['qty'] +") "
-
-        order.customer = request.user.username
-        order.payment_status = "Paid"
-        order.order_id = "On Process"
-        order.save()
-        '''
 
         return redirect('account-info')
+
+    try:
+        context = {
+        "var": user_order[request.user.username],
+        }
+
+        customer_order = context["var"]
+    except KeyError:
+        return redirect('order')
 
     context = {
         "var": user_order[request.user.username],
