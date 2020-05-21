@@ -28,11 +28,6 @@ def index(request):
 
 def menu(request):
     context = {
-        "pizza": Pizza.objects.all(),
-        "toppings": Toppings.objects.all(),
-        "salads": Salads.objects.all(),
-        "platters": Platters.objects.all(),
-        "pasta": Pasta.objects.all(),
         "menu": Menu.objects.all(),
     }
     return render(request, "pizza/menu.html", context)
@@ -122,7 +117,11 @@ def user_logout(request):
 
 def account_info(request):
     if request.user.is_authenticated:
-        return render(request, 'pizza/account.html')
+        context = {
+            "username": request.user,
+            "order": Order.objects.all(),
+        }
+        return render(request, 'pizza/account.html', context)
     else:
         return redirect('login')
 

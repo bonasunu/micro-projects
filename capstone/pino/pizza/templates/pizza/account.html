@@ -10,6 +10,31 @@ Account
         <h1 class="title">Account Information</h1>
         
     </div>
-    
+    <div class="columns is-centered">
+        <div class="column is-half">
+            <br>
+            <h2 class="subtitle">Hi {{ username }}! Your orders are here</h2>
+            <table class="table is-hoverable is-fullwidth">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Orders</th>
+                        <th>Payment Status</th>
+                        <th>Order Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in order %}
+                    <tr>
+                        <td>{{ item.order_id }}</td>
+                        <td>{{ item.order }}</td>
+                        <td>{{ item.payment_status }}</td>
+                        <td>{{ item.order_status }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
 </section>
 {% endblock %}
