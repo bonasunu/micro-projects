@@ -26,10 +26,13 @@ Account
                 <tbody>
                     {% for item in order %}
                     <tr>
-                        <td>{{ item.order_id }}</td>
-                        <td>{{ item.order }}</td>
-                        <td>{{ item.payment_status }}</td>
-                        <td>{{ item.order_status }}</td>
+                        {% if item.customer == username %}
+                            <td>{{ item.order_id }}</td>
+                            <td>{{ item.order }}</td>
+                            <td>{{ item.payment_status }}</td>
+                            <td>{{ item.order_status }}</td>
+                        {% endif %}
+                        
                     </tr>
                     {% endfor %}
                 </tbody>

@@ -174,7 +174,6 @@ def payment(request):
         order.save()
 
         user_order[request.user.username] = []
-
         return redirect('account-info')
 
     try:
