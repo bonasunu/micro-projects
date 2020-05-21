@@ -25,16 +25,16 @@ Cart
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    
                                     {% for item in user_order %}
-                                    {% if item.qty > 0 %}
-                                        <tr>
-                                            <td>{{ item.menu_name }}</td>
-                                            <td>{{ item.qty }} x $ {{ item.item_price }}</td>
-                                            <td id="items_price">{{ item.total_price }}</td>
-                                        </tr>
-                                    {% endif %}
-                                    {% endfor %}
+                                        {% if item.qty > 0 %}
+                                            <tr>
+                                                <td>{{ item.menu_name }}</td>
+                                                <td>{{ item.qty }} x $ {{ item.item_price }}</td>
+                                                <td id="items_price">{{ item.total_price }}</td>
+                                            </tr>
+                                        {% endif %}
+                                        {% endfor %}
+                                    
                                 </tbody>
                                 <tfoot>
                                     <tr>

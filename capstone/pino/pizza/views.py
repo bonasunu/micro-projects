@@ -136,12 +136,12 @@ def shopping_cart(request):
                 "user_order": user_order[request.user.username],
         }
 
+        if request.method == 'POST': 
+            return redirect('payment')
+
         return render(request, 'pizza/cart.html', context)
     else:
         return redirect('login')
-
-    if request.method == 'POST':
-        return redirect('payment')
 
 @login_required(login_url='login')
 def payment(request):
@@ -170,7 +170,10 @@ def payment(request):
 
         order.customer = request.user
         order.payment_status = "Paid"
+        order.order_status = "Pending"
         order.save()
+
+        user_order[request.user.username] = []
 
         return redirect('account-info')
 
