@@ -1,1 +1,1 @@
-PIJAR
+PIJAR project
