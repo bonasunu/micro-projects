@@ -13,6 +13,45 @@
 
 </head>
 <body>
+    <head>
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+              <a class="navbar-item">
+                  <strong>PIJAR</strong>
+              </a>
+            </div>
+          
+            <div id="navbarBasicExample" class="navbar-menu">
+              <div class="navbar-start">
+                <a class="navbar-item" href="{% url 'index' %}">
+                  Home
+                </a>
+          
+                <a class="navbar-item" href="{% url 'cards' %}">
+                  Cards
+                </a>
+          
+                <a class="navbar-item" href="{% url 'learn' %}">
+                    Learn
+                </a>
+                </div>
+              </div>
+          
+              <div class="navbar-end">
+                <div class="navbar-item">
+                  <div class="buttons">
+                    <a class="button is-primary" href="{% url 'register' %}">
+                      <strong>Register</strong>
+                    </a>
+                    <a class="button is-light" href="{% url 'login' %}">
+                      Log in
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+    </head>
     {% block body %}
     {% endblock %}
 </body>
