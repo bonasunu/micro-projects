@@ -15,3 +15,6 @@ def register_user(request):
 
 def user_login(request):
     return render(request, 'mooc/login.html')
+
+def account_info(request):
+    return render(request, 'mooc/account.html')
