@@ -10,7 +10,7 @@ Pijar Project
         <h1 class="title">Register</h1>
         <div class="columns is-centered">
             <div class="column is-one-quarter">
-                <form action="" method="post">
+                <form action="" method="POST">
                     {% csrf_token %}
                     <p class="subtitle">Create account on this site</p>
                     <div class="field">
@@ -60,6 +60,7 @@ Pijar Project
                         {{ form.password1.errors }}
                         {{ form.password2.errors }}
                     </p>
+                    <br>
                     <p class="subtitle">Already have account? <a href="{% url 'login' %}">Login now</a></p>
                 </form>
             </div>

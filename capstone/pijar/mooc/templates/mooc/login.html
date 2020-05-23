@@ -7,7 +7,34 @@ Pijar Project
 {% block body %}
 <section class="section">
     <div class="container">
-        <h1 class="title">Login</h1>
+        <h1 class="title">Login to your account</h1>
+        <div class="columns is-centered">
+            <div class="column is-one-quarter">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    {% for message in messages %}
+                        <p class="subtitle">{{ message }}</p>
+                    {% endfor %}
+                    <div class="field">
+                        <lable class="label">Username</lable>
+                        <div class="control">
+                            <input type="text" class="input" name="username">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <lable class="label">Password</lable>
+                        <div class="control">
+                            <input type="password" class="input" name="pass">
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <input type="submit" class="button is-success" value="Login">
+                    </div>
+                    <p class="subtitle">Don't have account? <a href="{% url 'register' %}">Register now</a></p>
+                </form>
+            </div>
+        </div>
+        
     </div>
 </section>
 {% endblock %}
