@@ -60,5 +60,6 @@ def user_logout(request):
     logout(request)
     return redirect('login')
 
+@login_required(login_url='login')
 def account_info(request):
     return render(request, 'mooc/account.html')
