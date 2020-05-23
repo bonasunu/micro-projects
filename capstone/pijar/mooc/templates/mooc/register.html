@@ -8,6 +8,62 @@ Pijar Project
 <section class="section">
     <div class="container">
         <h1 class="title">Register</h1>
+        <div class="columns is-centered">
+            <div class="column is-one-quarter">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <p class="subtitle">Create account on this site</p>
+                    <div class="field">
+                        <lable class="label">{{ form.first_name.label }}</lable>
+                        <div class="control">
+                            {{ form.first_name }}
+                        </div>
+                    </div>
+                    <div class="field">
+                        <lable class="label">{{ form.last_name.label }}</lable>
+                        <div class="control">
+                            {{ form.last_name }}
+                        </div>
+                    </div>
+                    <div class="field">
+                        <lable class="label">{{ form.username.label }}</lable>
+                        <div class="control">
+                            {{ form.username }}
+                        </div>
+                    </div>
+                    <div class="field">
+                        <lable class="label">{{ form.email.label }}</lable>
+                        <div class="control">
+                            {{ form.email }}
+                        </div>
+                    </div>
+                    <div class="field">
+                        <lable class="label">Password</lable>
+                        <div class="control">
+                            {{ form.password1 }}
+                        </div>
+                    </div>
+                    <div class="field">
+                        <lable class="label">Repeat Password</lable>
+                        <div class="control">
+                            {{ form.password2 }}
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <input type="submit" class="button" value="Create User">
+                    </div>
+                    <p class="subtitle is-danger">
+                        {{ form.first_name.errors }}
+                        {{ form.last_name.errors }}
+                        {{ form.username.errors }}
+                        {{ form.email.errors }}
+                        {{ form.password1.errors }}
+                        {{ form.password2.errors }}
+                    </p>
+                    <p class="subtitle">Already have account? <a href="{% url 'login' %}">Login now</a></p>
+                </form>
+            </div>
+        </div>
     </div>
 </section>
 {% endblock %}
