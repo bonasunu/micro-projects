@@ -1,0 +1,12 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+section {
+    flex: 1;
+}
+.navbar {
+    border-bottom: 2px solid black;
+}
