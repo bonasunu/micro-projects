@@ -7,7 +7,53 @@ Pijar Project
 {% block body %}
 <section class="section">
     <div class="container">
+        <h1 class="title">Category</h1>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="field">
+                    <label for="add_category" class="label">Add new category</label>
+                    <div class="control">
+                        <input type="text" class="input" name="add_category">
+                    </div>
+                </div>
+                <div class="buttons">
+                    <input type="submit" class="button" value="Add Category">
+                </div>
+            </form>
+            <br>
         <h1 class="title">Cards</h1>
+            
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="field">
+                    <label for="select_category" class="label">Select Category</label>
+                    <select name="select_category" id="select_category">
+                        {% for item in categories %}
+                            <option value="{{ item.category }}">{{ item.category }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="field">
+                    <label for="card_question" class="label">Add Card Question</label>
+                    <div class="control">
+                        <input type="text" class="input" name="card_question">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="card_answer" class="label">Add Card Answer</label>
+                    <div class="control">
+                        <textarea class="textarea" placeholder="e.g. Hello world"></textarea>
+                    </div>
+                </div>
+                
+                <div class="buttons">
+                    <input type="submit" class="button" value="Add Card">
+                </div>
+            </form>
+
+            <br>
+            
     </div>
 </section>
-{% endblock %}
+{% endblock %}  

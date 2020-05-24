@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from .models import Category, Cards
 
 # Create your views here.
 def index(request):
@@ -11,7 +12,15 @@ def index(request):
 
 @login_required(login_url='login')
 def cards(request):
-    return render(request, 'mooc/cards.html')
+    categories = Category.objects.all()
+    cards = Cards.objects.all()
+
+    context = {
+        "categories": categories,
+        "cards": cards
+    }
+
+    return render(request, 'mooc/cards.html', context)
 
 @login_required(login_url='login')
 def learn(request):

@@ -1,6 +1,15 @@
 from django.db import models
 
 # Create your models here.
+class Category(models.Model):
+    category = models.CharField(max_length=255)
+
+class Cards(models.Model):
+    card_id = models.AutoField(primary_key=True)
+    card_category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name="card_category")
+    card_question = models.CharField(max_length=100000)
+    card_answer = models.CharField(max_length=100000)
+
 
 """
 TODO
