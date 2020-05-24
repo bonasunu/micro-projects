@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .models import Category, Cards
 
+
 # Create your views here.
 def index(request):
     return render(request, 'mooc/index.html')
@@ -21,6 +22,35 @@ def cards(request):
     }
 
     return render(request, 'mooc/cards.html', context)
+
+@login_required(login_url='login')
+def add_category(request):
+    
+    if request.method == 'POST':
+        category = request.POST.get('add_category')
+        add_category = Category()
+
+        add_category.category = category
+        add_category.save()
+
+        return redirect('cards')
+
+@login_required(login_url='login')
+def add_card(request):
+
+    if request.method == 'POST':
+        card_category = request.POST.get('select_category')
+        card_question = request.POST.get('card_question')
+        card_answer = request.POST.get('card_answer')
+
+        add_card = Cards()
+        add_card.card_category = Category.objects.get(category=card_category)
+        add_card.card_question = card_question
+        add_card.card_answer = card_answer
+
+        add_card.save()
+        # TODO add message 
+        return redirect('cards')
 
 @login_required(login_url='login')
 def learn(request):

@@ -8,7 +8,7 @@ Pijar Project
 <section class="section">
     <div class="container">
         <h1 class="title">Category</h1>
-            <form action="" method="POST">
+            <form action="add_category" method="POST">
                 {% csrf_token %}
                 <div class="field">
                     <label for="add_category" class="label">Add new category</label>
@@ -23,7 +23,7 @@ Pijar Project
             <br>
         <h1 class="title">Cards</h1>
             
-            <form action="" method="POST">
+            <form action="add_card" method="POST">
                 {% csrf_token %}
                 <div class="field">
                     <label for="select_category" class="label">Select Category</label>
@@ -43,7 +43,7 @@ Pijar Project
                 <div class="field">
                     <label for="card_answer" class="label">Add Card Answer</label>
                     <div class="control">
-                        <textarea class="textarea" placeholder="e.g. Hello world"></textarea>
+                        <textarea class="textarea" placeholder="e.g. Hello world" name="card_answer"></textarea>
                     </div>
                 </div>
                 
