@@ -15,10 +15,12 @@ def index(request):
 def cards(request):
     categories = Category.objects.all()
     cards = Cards.objects.all()
+    user = request.user
 
     context = {
         "categories": categories,
-        "cards": cards
+        "cards": cards,
+        'user': user
     }
 
     return render(request, 'mooc/cards.html', context)
@@ -31,6 +33,7 @@ def add_category(request):
         add_category = Category()
 
         add_category.category = category
+        add_category.user = request.user
         add_category.save()
 
         return redirect('cards')
@@ -54,7 +57,36 @@ def add_card(request):
 
 @login_required(login_url='login')
 def learn(request):
-    return render(request, 'mooc/learn.html')
+
+    category = Category.objects.all()
+    cards = Cards.objects.all()
+    user = request.user
+
+    context = {
+        'category': category,
+        'cards': cards,
+        'user': user
+    }
+
+    if request.method == 'POST':
+        card_category = request.POST.get('learn_category')
+        cards = Cards.objects.all()
+        user = request.user
+
+        context = {
+            'card_category': card_category,
+            'cards': cards,
+            'user': user
+        }
+        
+        return render(request, 'mooc/flashcards.html', context)
+
+    return render(request, 'mooc/learn.html', context)
+
+@login_required(login_url='login')
+def flashcards(request):
+
+    return render(request, 'mooc/flashcards.html', context)
 
 def register_user(request):
     if request.user.is_authenticated:

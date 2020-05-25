@@ -8,6 +8,28 @@ Pijar Project
 <section class="section">
     <div class="container">
         <h1 class="title">Learn</h1>
+        <form action="learn" method="POST">
+            {% csrf_token %}
+            
+            <div class="field">
+                <div class="control">
+                    <select name="learn_category" id="learn_category" class="select">
+                        {% for item in category %}
+                            {% if item.user == user %}
+                                <option value="{{ item.category }}">{{ item.category }}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>            
+                </div>
+            </div>
+            <div class="buttons">
+                <input type="submit" class="button" value="Learn Now">
+            </div>
+        </form>
+
+        <div>
+
+        </div>
     </div>
 </section>
 {% endblock %}

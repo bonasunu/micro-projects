@@ -29,7 +29,9 @@ Pijar Project
                     <label for="select_category" class="label">Select Category</label>
                     <select name="select_category" id="select_category">
                         {% for item in categories %}
-                            <option value="{{ item.category }}">{{ item.category }}</option>
+                            {% if item.user == user %}
+                                <option value="{{ item.category }}">{{ item.category }}</option>
+                            {% endif %}
                         {% endfor %}
                     </select>
                 </div>

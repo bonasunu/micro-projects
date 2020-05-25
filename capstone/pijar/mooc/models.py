@@ -1,11 +1,13 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Category(models.Model):
     category = models.CharField(max_length=255)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user') 
 
     def __str__(self):
-        return f"{self.category}"
+        return f"{self.user} - {self.category}"
 
 class Cards(models.Model):
     card_id = models.AutoField(primary_key=True)

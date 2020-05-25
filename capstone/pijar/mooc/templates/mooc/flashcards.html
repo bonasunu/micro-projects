@@ -1,0 +1,20 @@
+{% extends 'mooc/base.html' %}
+
+{% block title %}
+Flashcards
+{% endblock %}
+
+{% block body %}
+<section class="section">
+    <div class="container">
+        <h1 class="title">Flashcards</h1>
+        <a href="{% url 'learn' %}"><strong>back to Categories</strong></a>
+        <br>
+        {% for item in cards %}
+            {% if item.card_category.user == user and item.card_category.category == card_category %}
+                <p>{{ item.card_question }}</p>
+            {% endif %}
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
