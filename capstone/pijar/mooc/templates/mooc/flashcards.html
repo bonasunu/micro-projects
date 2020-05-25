@@ -15,6 +15,21 @@ Flashcards
                 <p>{{ item.card_question }}</p>
             {% endif %}
         {% endfor %}
+
+        <!-- # TODO add JSONmethod for random pick card feature
+        -->
+
+        <div id="card"></div>
+        <div class="buttons">
+            <a class="button" id="pick">
+                Pick a card           
+            </a>
+        </div>
+        <script>
+            let cards = [];
+
+            
+        </script>
     </div>
 </section>
 {% endblock %}
