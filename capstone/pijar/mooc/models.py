@@ -4,11 +4,17 @@ from django.db import models
 class Category(models.Model):
     category = models.CharField(max_length=255)
 
+    def __str__(self):
+        return f"{self.category}"
+
 class Cards(models.Model):
     card_id = models.AutoField(primary_key=True)
     card_category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name="card_category")
     card_question = models.CharField(max_length=100000)
     card_answer = models.CharField(max_length=100000)
+
+    def __str__(self):
+        return f"{self.card_category} - card id => {self.card_id}"
 
 
 """
