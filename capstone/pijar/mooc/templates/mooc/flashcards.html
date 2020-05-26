@@ -39,12 +39,19 @@ Flashcards
                     <div class="modal-background"></div>
                     <div class="modal-content">
                         <div class="box">
-                            <div class="media-content has-text-centered">
+                            <div class="card-content has-text-centered">
                                 {{ item.card_answer }}
                             </div>
+                            <footer class="card-footer">
+                                <br>
+                                <div class="buttons">
+                                    <a class="modal-close">Close</a>
+                                </div>
+                            </footer>
                         </div>
+                        
                     </div>
-                    <button class="modal-close is-large" aria-label="close"></button>
+                    
                 </div>
             {% endif %}
         {% endfor %}
@@ -54,12 +61,15 @@ Flashcards
         document.querySelectorAll('.card-footer-item').forEach(function(button) {
             button.onclick = function() {
                 document.querySelector('.modal').className = 'modal is-active';
+                console.log('show modal');
             };
         });
 
-        document.querySelector('.modal-close is-large').onclick = () => {
-            document.querySelector('.modal is-active').className = 'modal';
-        };
+        document.querySelectorAll('.modal-close, .modal-background').forEach(function(button) {
+            button.onclick = function() {
+                document.querySelector('.modal').className = 'modal';
+            };
+        });
     </script>
 </section>
 {% endblock %}
