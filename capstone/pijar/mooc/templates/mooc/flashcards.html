@@ -74,10 +74,25 @@ Flashcards
     let arrayCardsLength = arrayCards.length;
 
     document.querySelector('#pick-card').onclick = () => {
-        let spin = Math.floor((Math.random() * arrayCardsLength) + 1);
-        arrayCards[spin].style.display = 'flex';
+        // TODO hidecard();
+        spin();
+    };
+
+    function spin() {
+        if (arrayCardsLength == 0) {
+            // TODO This alert does not work
+            alert('You finished this category');
+            reload();
+        };
+
+        let spinNum = Math.floor(Math.random() * arrayCardsLength);
+        arrayCards[spinNum].style.display = 'flex';
+        arrayCards.splice(spinNum, 1);
     };
     
+    function hidecard(arr) {
+        arr.style.display = 'none';
+    };
 
 </script>
 {% endblock %}
