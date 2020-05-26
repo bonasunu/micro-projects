@@ -7,75 +7,77 @@ Flashcards
 {% block body %}
 <section class="section">
     <div class="container">
-        <h1 class="title">Flashcards</h1>
-        <div class="buttons">
-            <a href="{% url 'learn' %}" class="button is-dark"><strong>back to Categories</strong></a>
-        </div>
-        
-        {% for item in cards %}
-            {% if item.card_category.user == user and item.card_category.category == card_category %}
-                <div class="boxy">
-                    <div class="card-content">
-                        <p class="subtitle has-text-centered">
-                            {{ item.card_question }}
-                        </p>
-                    </div>
-                    <footer class="card-footer">
-                        <a class="card-footer-item">Show answer</a>
-                    </footer>
+        <div class="columns is-centered">
+            <div class="column is-half">
+                <h1 class="title">Flashcards</h1>
+                <div class="buttons">
+                    <a href="{% url 'learn' %}" class="button is-dark"><strong>back to Categories</strong></a>
                 </div>
-                <div class="modal">
-                    <div class="modal-background"></div>
-                    <div class="modal-content">
-                        <div class="box">
-                            <div class="card-content has-text-centered">
-                                {{ item.card_answer }}
+                
+                {% for item in cards %}
+                    {% if item.card_category.user == user and item.card_category.category == card_category %}
+                        <div class="boxy">
+                            <div class="card-content">
+                                <p class="subtitle has-text-centered">
+                                    {{ item.card_question }}
+                                </p>
                             </div>
                             <footer class="card-footer">
-                                <br>
-                                <div class="buttons">
-                                    <a class="modal-close">Close</a>
-                                </div>
+                                <a class="card-footer-item">Show answer</a>
                             </footer>
                         </div>
-                    </div>
+                        <div class="modal">
+                            <div class="modal-background"></div>
+                            <div class="modal-content">
+                                <div class="box">
+                                    <div class="card-content has-text-centered">
+                                        {{ item.card_answer }}
+                                    </div>
+                                    <footer class="card-footer">
+                                        <br>
+                                        <div class="buttons">
+                                            <a class="modal-close">Close</a>
+                                        </div>
+                                    </footer>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+                
+                <div class="container" id="flashcard"></div>
+                <div class="buttons">
+                    <button class="button" id="pick-card">Pick a card</button>
                 </div>
-            {% endif %}
-        {% endfor %}
-        
-        <div class="container" id="flashcard"></div>
-        <div class="buttons">
-            <button class="button" id="pick-card">Pick a card</button>
-            
+            </div>
         </div>
-
     </div>
-    <script>
-        document.querySelectorAll('.card-footer-item').forEach(function(button) {
-            button.onclick = function() {
-                document.querySelector('.modal').className = 'modal is-active';
-                console.log('show modal');
-            };
-        });
-
-        document.querySelectorAll('.modal-close, .modal-background').forEach(function(button) {
-            button.onclick = function() {
-                document.querySelector('.modal').className = 'modal';
-            };
-        });
-
-        // Flashcards
-        let flashcards = document.querySelectorAll('.boxy');
-        let arrayCards = flashcards;
-
-        let arrayCardsLength = arrayCards.length;
-
-        document.querySelector('#pick-card').onclick = () => {
-            let spin = Math.floor((Math.random() * arrayCardsLength) + 1);
-            arrayCards[spin].style.display = 'flex';
-        };
-        
-
-    </script>
 </section>
+<script>
+    document.querySelectorAll('.card-footer-item').forEach(function(button) {
+        button.onclick = function() {
+            document.querySelector('.modal').className = 'modal is-active';
+            console.log('show modal');
+        };
+    });
+
+    document.querySelectorAll('.modal-close, .modal-background').forEach(function(button) {
+        button.onclick = function() {
+            document.querySelector('.modal').className = 'modal';
+        };
+    });
+
+    // Flashcards
+    let flashcards = document.querySelectorAll('.boxy');
+    let arrayCards = flashcards;
+
+    let arrayCardsLength = arrayCards.length;
+
+    document.querySelector('#pick-card').onclick = () => {
+        let spin = Math.floor((Math.random() * arrayCardsLength) + 1);
+        arrayCards[spin].style.display = 'flex';
+    };
+    
+
+</script>
 {% endblock %}
