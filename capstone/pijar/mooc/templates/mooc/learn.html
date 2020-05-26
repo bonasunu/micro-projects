@@ -7,29 +7,36 @@ Pijar Project
 {% block body %}
 <section class="section">
     <div class="container">
-        <h1 class="title">Learn</h1>
-        <form action="learn" method="POST">
-            {% csrf_token %}
-            
-            <div class="field">
-                <div class="control">
-                    <select name="learn_category" id="learn_category" class="select">
-                        {% for item in category %}
-                            {% if item.user == user %}
-                                <option value="{{ item.category }}">{{ item.category }}</option>
-                            {% endif %}
-                        {% endfor %}
-                    </select>            
+        <div class="columns is-centered">
+            <div class="column is-one-quarter">
+                <h1 class="title has-text-centered">Learn Now</h1>
+                <br>
+                <h1 class="subtitle has-text-centered">Please select a category</h1>
+                <form action="learn" method="POST">
+                    {% csrf_token %}
+                    
+                    <div class="field">
+                        <div class="control has-text-centered">
+                            <select name="learn_category" id="learn_category" class="select">
+                                {% for item in category %}
+                                    {% if item.user == user %}
+                                        <option value="{{ item.category }}">{{ item.category }}</option>
+                                    {% endif %}
+                                {% endfor %}
+                            </select>            
+                        </div>
+                    </div>
+                    <div class="buttons is-centered">
+                        <input type="submit" class="button is-dark" value="Learn Now">
+                    </div>
+                </form>
+
+                <div>
+
                 </div>
             </div>
-            <div class="buttons">
-                <input type="submit" class="button is-dark" value="Learn Now">
-            </div>
-        </form>
-
-        <div>
-
         </div>
+        
     </div>
 </section>
 {% endblock %}
