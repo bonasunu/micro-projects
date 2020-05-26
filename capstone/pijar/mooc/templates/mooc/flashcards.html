@@ -10,26 +10,25 @@ Flashcards
         <h1 class="title">Flashcards</h1>
         <a href="{% url 'learn' %}"><strong>back to Categories</strong></a>
         <br>
+        
+
+        <!-- # TODO add JSONmethod for random pick card feature
+
         {% for item in cards %}
             {% if item.card_category.user == user and item.card_category.category == card_category %}
                 <p>{{ item.card_question }}</p>
             {% endif %}
         {% endfor %}
 
-        <!-- # TODO add JSONmethod for random pick card feature
         -->
+        
+        {% for item in cards %}
+            {% if item.card_category.user == user and item.card_category.category == card_category %}
+                <p>{{ item.card_question }}</p>
+                <strong>{{ item.card_answer }}</strong>
+            {% endif %}
+        {% endfor %}
 
-        <div id="card"></div>
-        <div class="buttons">
-            <a class="button" id="pick">
-                Pick a card           
-            </a>
-        </div>
-        <script>
-            let cards = [];
-
-            
-        </script>
     </div>
 </section>
 {% endblock %}

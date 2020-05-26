@@ -72,13 +72,22 @@ def learn(request):
         card_category = request.POST.get('learn_category')
         cards = Cards.objects.all()
         user = request.user
+        learn_card = {}
+
+        for item in cards:
+            if item.card_category.user == user and item.card_category.category == card_category:
+                learn_card[item.card_question] = item.card_answer
+
+        # add feature - show a number of cards based on user preference
 
         context = {
             'card_category': card_category,
             'cards': cards,
-            'user': user
+            'user': user,
+            'learn_card': learn_card
         }
         
+        # TODO add JSONmethod for random pick card feature
         return render(request, 'mooc/flashcards.html', context)
 
     return render(request, 'mooc/learn.html', context)
