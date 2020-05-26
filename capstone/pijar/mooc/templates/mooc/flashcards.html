@@ -12,20 +12,9 @@ Flashcards
             <a href="{% url 'learn' %}" class="button is-dark"><strong>back to Categories</strong></a>
         </div>
         
-
-        <!-- # TODO add JSONmethod for random pick card feature
-
         {% for item in cards %}
             {% if item.card_category.user == user and item.card_category.category == card_category %}
-                <p>{{ item.card_question }}</p>
-            {% endif %}
-        {% endfor %}
-
-        -->
-        
-        {% for item in cards %}
-            {% if item.card_category.user == user and item.card_category.category == card_category %}
-                <div class="box">
+                <div class="boxy">
                     <div class="card-content">
                         <p class="subtitle has-text-centered">
                             {{ item.card_question }}
@@ -49,12 +38,16 @@ Flashcards
                                 </div>
                             </footer>
                         </div>
-                        
                     </div>
-                    
                 </div>
             {% endif %}
         {% endfor %}
+        
+        <div class="container" id="flashcard"></div>
+        <div class="buttons">
+            <button class="button" id="pick-card">Pick a card</button>
+            
+        </div>
 
     </div>
     <script>
@@ -70,6 +63,19 @@ Flashcards
                 document.querySelector('.modal').className = 'modal';
             };
         });
+
+        // Flashcards
+        let flashcards = document.querySelectorAll('.boxy');
+        let arrayCards = flashcards;
+
+        let arrayCardsLength = arrayCards.length;
+
+        document.querySelector('#pick-card').onclick = () => {
+            let spin = Math.floor((Math.random() * arrayCardsLength) + 1);
+            arrayCards[spin].style.display = 'flex';
+        };
+        
+
     </script>
 </section>
 {% endblock %}
