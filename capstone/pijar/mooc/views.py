@@ -56,6 +56,15 @@ def add_card(request):
         return redirect('cards')
 
 @login_required(login_url='login')
+def delete_category(request):
+
+    if request.method == 'POST':
+        delete_category = request.POST.get('delete_category')
+        Category.objects.filter(id=delete_category).delete()
+
+        return redirect('cards')
+
+@login_required(login_url='login')
 def learn(request):
 
     category = Category.objects.all()

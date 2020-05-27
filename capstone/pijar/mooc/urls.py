@@ -11,5 +11,6 @@ urlpatterns = [
     path('logout', views.user_logout, name='logout'),
     path('add_category', views.add_category, name='add_category'),
     path('add_card', views.add_card, name='add_card'),
+    path('delete_category', views.delete_category, name='delete_category'),
     path('flashcards', views.flashcards, name='flashcards'),
 ]

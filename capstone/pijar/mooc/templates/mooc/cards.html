@@ -56,6 +56,28 @@ Cards
 
             <br>
 
+            <h1 class="title">Delete Category</h1>
+            <form action="delete_category" method="post">
+                {% csrf_token %}
+                
+                    <div class="field">
+                        <div class="control">
+                            
+                            <select name="delete_category" id="delete_category">
+                                {% for item in categories %}
+                                    {% if item.user == user %}
+                                        <option value="{{ item.id }}">{{ item.category }}</option>
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
+    
+                        </div>
+                    </div>
+                    
+                <div class="buttons">
+                    <input type="submit" class="button" value="Delete Category">
+                </div>
+            </form>
             <!-- #region 
             TODO
             Add category list
