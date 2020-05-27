@@ -151,4 +151,13 @@ def user_logout(request):
 
 @login_required(login_url='login')
 def account_info(request):
-    return render(request, 'mooc/account.html')
+    categories = Category.objects.all()
+    cards = Cards.objects.all()
+    user = request.user
+
+    context = {
+        'categories': categories,
+        'cards': cards,
+        'user': user
+    }
+    return render(request, 'mooc/account.html', context)

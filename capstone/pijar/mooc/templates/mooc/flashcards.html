@@ -17,14 +17,15 @@ Flashcards
                 {% for item in cards %}
                     {% if item.card_category.user == user and item.card_category.category == card_category %}
                         <div class="boxy">
-                            <div class="card-content">
-                                <p class="subtitle has-text-centered">
+                            <div class="card-content is-centered has-text-centered">
+                                <p class="subtitle has-text-centered is-centered">
                                     {{ item.card_question }}
                                 </p>
+                                <footer class="card-content is-centered has-text-centered">
+                                    <a class="card-footer-item">Show answer</a>
+                                </footer>
                             </div>
-                            <footer class="card-footer">
-                                <a class="card-footer-item">Show answer</a>
-                            </footer>
+                            
                         </div>
                         <div class="modal">
                             <div class="modal-background"></div>

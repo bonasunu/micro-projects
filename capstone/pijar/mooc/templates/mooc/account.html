@@ -7,12 +7,22 @@ Account
 {% block body %}
 <section class="section">
     <div class="container">
-        <h1 class="title">Account Information</h1>
+        
+        <div class="columns is-centered">
+            <div class="column is-half">
+                <h1 class="title">Account Information</h1>
+                <br>
+                <h2 class="subtitle">
+                    Hi {{ user }}
+                </h2>
+                <h2 class="subtitle">
+                    Your name : {{ user.first_name }} {{ user.last_name }}
+                    <br>
+                    Your email : {{ user.email }}
+                </h2>
+            </div>
+        </div>
     </div>
-    <!-- #region 
-    TODO
-
-    add info about categories and cards
-    -->
+    
 </section>
 {% endblock %}
