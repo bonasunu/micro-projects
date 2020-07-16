@@ -1,0 +1,584 @@
+@import url(//fonts.googleapis.com/css?family=Open+Sans);
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: black;
+    width: 100vw;
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+    text-size-adjust: auto;
+}
+
+/* header section  */
+
+.top-nav {
+    width: 100vw;
+    height: 10vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.top-nav a {
+    text-decoration: none;
+    color: white;
+    flex: 1;
+}
+
+.top-nav a:hover {
+    color: gainsboro;
+}
+
+.site-logo,
+.nav-link-main,
+.nav-link-right {
+    font-family: 'Open sans', Arial, Helvetica, sans-serif;
+}
+
+.site-logo {
+    text-align: center;
+    padding-left: 1em;
+    padding-right: 1em;
+    margin: auto;
+    max-width: 25vw;
+    font-size: 1.5em;
+    font-style: normal;
+    font-weight: bold;
+    line-height: 33px;
+    letter-spacing: 0.1em;
+}
+
+.nav-link-main {
+    font-size: 0.7em;
+    max-width: 8em;
+    text-align: center;
+    margin: auto;
+    padding: 10px;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    line-height: 16px;
+    font-style: normal;
+}
+
+.nav-link-right {
+    padding: 1.5em;
+    margin: auto;
+    font-size: 0.7em;
+    font-weight: bold;
+    font-style: normal;
+    letter-spacing: 0.1em;
+    line-height: 16px;
+}
+
+#sign-up {
+    text-align: right;
+}
+
+#login {
+    text-align: left;
+    max-width: 20vw;
+}
+
+.header-content {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    color: white;
+}
+
+.header-content a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.header-content-main {
+    height: 90%;
+    text-align: center;
+    padding-top: 10em;
+}
+
+.main-msg {
+    color: white;
+    font-size: 4em;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 0.5em;
+    font-weight: bold;
+    font-style: normal;
+    letter-spacing: 3px;
+}
+
+.main-msg-info {
+    font-size: 1.5em;
+    color: white;
+    font-weight: normal;
+    font-style: normal;
+    letter-spacing: 2px;
+    line-height: 28px;
+}
+
+
+.main-msg-button {
+    margin-top: 1em;
+    background-color: #F9B23E;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.2em;
+    font-weight: bold;
+    width: 15em;
+    height: 3.5em;
+    line-height: 22px;
+}
+
+.main-story {
+    font-size: 0.8em;
+    font-family: 'Open sans', Arial, Helvetica, sans-serif;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    animation: scrollDown 1.2s infinite;
+}
+
+@keyframes scrollDown {
+    0% {
+        transform: scale(1);
+    }
+
+    25% {
+        transform: scale(1.2);
+    }
+
+    10% {
+        transform: scale(1);
+    }
+}
+
+/* gallery section  */
+
+.gallery-content {
+    padding-top: 10%;
+}
+
+.gallery-info {
+    color: white;
+    padding-left: 15em;
+    padding-right: 0;
+    /* border: yellow 1px solid; */
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.gallery-info-main-1 {
+    font-size: 1.5em;
+}
+
+.gallery-info-main-2 {
+    font-size: 3em;
+}
+
+.gallery-slides {
+    /* border: yellow 2px solid; */
+    margin-right: 8em;
+    margin-left: 0;
+    height: 70vh;
+    padding-left: 0;
+}
+
+* {
+    box-sizing: border-
+}
+
+body {
+    font-family: Verdana, 
+    sans-serif; 
+    margin:0;
+    background-color: black;
+}
+.slides {
+    display: block;
+}
+img {
+    vertical-align: middle;
+}
+
+.slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 40%;
+    width: auto;
+    padding: 1em;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    margin-left: -56px;
+    margin-right: -56px;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin-left: 1.75em;
+    margin-right: 1.75em;
+    background-color: none;
+    border: white 1px solid;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.dot-wrapper {
+    position: relative;
+    margin-top: -60px;
+    text-align: center;
+}
+
+.active, .dot:hover {
+    background-color: white;
+}
+
+.fades {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+
+@media only screen and (max-width: 300px) {
+    .prev, .next,.text {font-size: 11px}
+}
+
+.features-content {
+    margin-left: 30em;
+}
+
+.features-info {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 10em;
+}
+
+.features-info-main-1 {
+    font-size: 1.5em;
+}
+
+.features-info-main-2 {
+    font-size: 3em;
+}
+
+.features-mini {
+    margin-top: 3.5em;
+    width: 25vw;
+}
+
+.features-mini-bottom {
+    margin-top: 2em;
+    width: 25vw;
+}
+
+.features-info-mini {
+    color: #FFB548;
+    font-size: 1.3em;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    letter-spacing: 2px;
+}
+
+/* requirement section  */
+
+.requirement-mini-info {
+    color: white;
+    font-size: 0.7em;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 2px;
+    text-align: center;
+    padding-bottom: 0;
+    padding-top: 20em;
+}
+
+.requirement-content {
+    color: white;
+    margin-left: 20em;
+    margin-top: -5em;
+    padding-top: 3em;
+}
+
+.requirements-title {
+    font-weight: normal;
+    font-style: normal;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 3px;
+    line-height: 1.1em;
+    font-size: 3em;
+    margin-bottom: 1.5em;
+}
+
+table {
+    background-color: rgba(0, 0, 0, 0.35);
+}
+
+.table-bordered th {
+    border: #212226 1px solid;
+}
+
+.table-bordered td {
+    border: #212226 1px solid;
+}
+
+td {
+    color: white;
+    
+}
+
+.requirements-info {
+    color: #FFB548;
+    letter-spacing: 2px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 1.25em;
+}
+
+.requirements-info-content {
+    font-family: 'Open sans', Arial, Helvetica, sans-serif;
+    line-height: 22px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.1em;
+    line-height: 100%;
+    margin-bottom: 0.3em;
+}
+
+/* top-score section*/
+
+.score-left-side {
+    margin-top: 15em;
+    margin-left: 20em;
+    padding-left: 2em;
+    padding-right: 2.5em;
+}
+
+.score-right-side {
+    margin-top: 5.5em;
+    margin-left: 5em;
+}
+
+.score-title {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2.8em;
+    font-weight: normal;
+    line-height: 64px;
+    letter-spacing: 3px;
+}
+
+.score-info {
+    margin-top: .5em;
+    color: white;
+    font-family: 'Open sans', Arial, Helvetica, sans-serif;
+    font-style: 0.6em;
+    line-height: 22px;
+    font-weight: normal;
+    font-style: normal;
+}
+
+.score-action-btn {
+    margin-top: 1.5em;
+    margin-bottom: 2em;
+    background-color: #FFB548;
+    border: none;
+    border-radius: 4px;
+    width: 15em;
+    height: 3.5em;
+    font-family: 'Open sans', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    line-height: 22px;
+}
+
+.score-card {
+    margin: 1.5em;
+    background-color: #191A1A;
+    color: white;
+    border-radius: 4px;
+    width: 25em;
+    height: 12em;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-1 {
+    margin-left: 12em;
+}
+
+.card-2 {
+    margin-left: 2em;
+}
+
+.card-3 {
+    margin-left: 9.5em;
+}
+
+.score-card-title {
+    flex-grow: 1;
+    display: flex;
+    padding: 0.7em;
+    flex: 1;
+}
+
+.score-card-content {
+    margin-top: -0.1em;
+    margin-left: 1em;
+    flex-grow: 1;
+    flex: 1;
+    max-height: 3.5em;
+}
+
+.score-card-date {
+    /* top: 50%; */
+    padding-top: -0.2em;
+    margin-left: 1em;
+    margin-bottom: 1em;
+    flex: 1;
+    max-height: 2em;
+}
+
+.gamer-pic {
+    background-color: none;
+    border: none;
+}
+
+.gamer-pic-circle {
+    box-shadow: 8px 4px #F9B23E;
+    border-radius: 50%;
+    width: 100%;
+    height: auto;
+    border: none;
+    background-color: none;
+}
+
+.gamer {
+    flex: 1;
+    margin-left: 1.5em;
+}
+
+.gamer-name {
+    padding-top: 7px;
+    margin-bottom: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 2px;
+    font-style: normal;
+    font-weight: normal;
+    color: #F9B23E;
+}
+
+.gamer-info {
+    margin-top: -0.5em;
+    color: #858586;
+    /* padding-top: -0.3em; */
+}
+
+.card-content-main {
+    font-size: 1em;
+    font-weight: normal;
+    font-style: normal;
+    font-family: 'Open sans', Arial, Helvetica, sans-serif;
+    line-height: 25px;
+    padding-right: 1.5em;
+}
+
+.card-content-date {
+    font-size: 0.8em;
+    color: #858586;
+}
+
+/* section  */
+
+.section {
+    background-size:cover;
+    /* background-color: #04080B; */
+    width: 100vw;
+    height: 100vh;
+    background-repeat: no-repeat;
+    position: relative;
+    background-position: center;
+    padding: 0;
+    margin: 0;
+}
+
+.hero-image {
+    background-image: radial-gradient(175% 57.77% at 50% 40%, 
+    rgba(255, 180, 52, 0) 0%, 
+    rgba(55, 44, 33, 0.10) 70%, 
+    #08090A 115%), 
+    url("./assets/main-bg-resize-widescreen.jpg");
+}
+
+.gallery-image {
+    background-image: radial-gradient(175% 57.77% at 50% 40%, 
+    rgba(255, 180, 52, 0) 0%, 
+    rgba(55, 44, 33, 0.10) 70%, 
+    #08090A 115%),
+    url("./assets/the-games-bg-widescreen.jpg");
+}
+
+.features-image {
+    background-image: radial-gradient(175% 57.77% at 50% 40%, 
+    rgba(255, 180, 52, 0) 0%, 
+    rgba(55, 44, 33, 0.10) 70%, 
+    #08090A 115%),
+    url("./assets/features-widescreen.jpg");
+}
+
+.requirements-image {
+    background-image: radial-gradient(30% 55% at 65% 40%, 
+    rgba(0, 0, 52, 0) 5%, 
+    rgba(10, 10, 10, 0.50) 50%, 
+    #000 115%),
+    url("./assets/requirements-widescreen.png");
+}
+
+/* media query */
+
+@media all and (max-width: 600px) {
+    .top-nav {
+        flex-wrap: wrap;
+    }
+
+    .top-nav > a {
+        flex-basis: 50%;
+    }
+}
