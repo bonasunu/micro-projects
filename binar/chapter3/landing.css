@@ -190,10 +190,10 @@ nav {
     width: 100%;
     height: 100vh;
     background-image: 
-        radial-gradient(175% 57.77% at 50% 40%,
+        radial-gradient(80% 60% at 30% 20%,
         rgba(255, 180, 52, 0) 0%,
-        rgba(55, 44, 33, 0.10) 70%,
-        #08090A 115%),
+        rgba(0, 0, 0, 0) 0%,
+        #000000 115%),
         url('./assets/features-widescreen.jpg');
     background-repeat: no-repeat;
     background-size: cover;
@@ -285,7 +285,7 @@ nav {
     border: #212226 1px solid !important;
 }
 
-/* top scre section  */
+/* top score section  */
 .score {
     width: 100%;
     height: 100vh;
@@ -370,6 +370,162 @@ nav {
 
 .gamer-name {
     margin-bottom: 0.1rem !important;
+}
+
+/* footer section  */
+.footer {
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 10%;
+    padding-right: 5%;
+}
+
+/* .footer-content {
+    border: yellow 1px solid;
+} */
+
+.footer-content-left {
+    text-align: center;
+    border:yellow 1px solid;
+}
+
+.footer-content-right {
+    color: white;
+}
+
+.skull {
+    position: relative;
+    opacity: 0.5;
+}
+.skull:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+    padding-bottom: 100%;
+    box-shadow: inset 120px 90px 150px 160px rgba(0,0,0,0.8);
+    border-radius: 50%;
+}
+
+.footer-content-info {
+    font-size: 1.5rem;
+}
+
+.footer-content-call {
+    font-size: 3rem;
+    margin-bottom: 0;
+}
+
+.footer-content-main {
+    font-size: 1rem;
+}
+
+.footer-content-subs {
+    margin-top: 3rem;
+    font-size: 1.5rem;
+    vertical-align: middle;
+}
+
+.footer-subs-email {
+    background-color: #1D1E1E;
+    border: none;
+    color: #FBB341;
+    width: 20rem;
+    height: 3.5rem;
+    text-align: center;
+    border-radius: 0.2rem;
+}
+
+.footer-subs-btn {
+    width: 20rem;
+    height: 3.5rem;
+    background-color: #FBB341;
+    color: black;
+    border: none;
+    border-radius: 0.2rem;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+#footer-nav {
+    /* border: blue 1px solid; */
+    display: flex;
+    justify-content: end;
+    text-align: center;
+}
+
+#footer-nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: 0.1rem;
+}
+
+#footer-nav a:hover {
+    color: #F9B23E;
+}
+
+.footer-social {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+}
+
+.footer-social-link {
+    margin-left: 2rem;
+    margin-right: 2rem;
+    /* filter: grayscale() brightness(150%); */
+}
+
+#facebook,
+#twitter,
+#youtube,
+#twitch {
+    color: white;
+    font-size: 2rem;
+}
+
+#facebook:hover {
+    color: #395498;
+}
+
+#twitter:hover {
+    color: #1C9CEB;
+}
+
+#youtube:hover {
+    color: #FF1313;
+}
+
+#twitch:hover {
+    color: #8D45F7;
+}
+
+.hr-display-below-992 {
+    visibility: hidden;
+}
+
+hr {
+    background-color: white;
+}
+
+.footer-credit-link, .footer-credit-link a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    text-align: end;
+}
+
+.footer-credit-link a:hover {
+    color: #F9B23E;
 }
 
 /* media query yeah */
@@ -560,6 +716,46 @@ nav {
     .score-left-side {
         padding-top: 5%;
         margin-left: 2rem;
+    }
+
+    .footer {
+        height: 100vh;
+    }
+
+    .footer-content {
+        margin-top: 3rem !important;
+    }
+
+    #skull {
+        width: 50% !important;
+        height: auto !important;
+    }
+
+    #footer-nav {
+        flex-direction: column !important;
+    }
+
+    .footer-content-left {
+        height: 100%;
+        width: 100%;
+    }
+
+    .footer-content-right {
+        text-align: center;
+        padding-left: 3rem !important;
+    }
+
+    .footer-credit-link,
+    #footer-copyright {
+        text-align: center;
+    }
+
+    .footer-social {
+        margin-top: 1rem;
+    }
+
+    .hr-display-below-992 {
+        visibility: visible;
     }
 
 }
