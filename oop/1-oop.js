@@ -30,5 +30,6 @@ class Student extends Person {
 let dumbledore = new Teacher('Albus', 'Dumbledore', 70, 'Male', 'Potion') 
 let ronald = new Student('Ronald', 'Weasley', 18, 'Male', 'Gryffindor') 
 let hermione = new Student('Hermione', 'Granger', 18, 'Female', 'Gryffindor') 
+
 console.log(dumbledore.constructor) 
 console.log(ronald.age)
