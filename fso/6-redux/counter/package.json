@@ -1,0 +1,8 @@
+{
+  "name": "counter",
+  "version": "1.0.0",
+  "description": "redux",
+  "main": "index.js",
+  "author": "Bonaventura",
+  "license": "MIT"
+}
