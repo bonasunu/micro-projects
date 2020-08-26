@@ -36,5 +36,8 @@ let input = [
   'Change uid4567 Ryan',
 ]
 // output ["Prodo came in.", "Ryan came in.", "Prodo has left.", "Prodo came in."]
+for (let i = 0; i < 100000; i++) {
+  input.push('Enter uid1234 Muzi')
+}
 
 solution(input)
