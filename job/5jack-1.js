@@ -1,11 +1,14 @@
 const solution = (record) => {
   let nickname = {}
 
-  // Add handler for nickname more than 10 characters
   const newRecord = record.map((item) => {
     let newItem = item.split(' ')
     let arr = [newItem[1], newItem[0]]
-    newItem[0] !== 'Leave' ? (nickname[newItem[1]] = newItem[2]) : ''
+    newItem[0] !== 'Leave'
+      ? newItem[2].length <= 10 // assign userid when nickname more than 10 characters
+        ? (nickname[newItem[1]] = newItem[2])
+        : (nickname[newItem[1]] = newItem[1])
+      : ''
     return arr
   })
 
