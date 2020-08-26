@@ -1,6 +1,7 @@
 const solution = (record) => {
   let nickname = {}
 
+  // Add handler for nickname more than 10 characters
   const newRecord = record.map((item) => {
     let newItem = item.split(' ')
     let arr = [newItem[1], newItem[0]]
@@ -12,9 +13,9 @@ const solution = (record) => {
     .map((item) => {
       switch (item[1]) {
         case 'Enter':
-          return `${nickname[item[0]]} came in`
+          return `${nickname[item[0]]} came in.`
         case 'Leave':
-          return `${nickname[item[0]]} has left`
+          return `${nickname[item[0]]} has left.`
         case 'Change':
           return 'Change'
       }
