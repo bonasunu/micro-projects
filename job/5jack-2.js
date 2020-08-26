@@ -3,6 +3,7 @@ const solution = (N, users) => {
   let totalPlayers = players.length
   let stages = []
 
+  // make new array based on stages (N)
   for (let i = 1; i <= N; i++) {
     stages.push({
       level: i,
