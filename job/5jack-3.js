@@ -1,13 +1,18 @@
 const solution = (relation) => {
-  let answer = [...relation]
+  let answer = 0
+  let arr = [...relation]
 
-  let id, name, major, grade
-  let arr = []
+  let checkKey = arr
+    .map((i) => i[5])
+    .sort()
+    .reduce(
+      (unique, item) => (unique.includes(item) ? unique : [...unique, item]),
+      []
+    ).length
 
-  id = answer.map((item) => item[3]).sort()
-
-  console.log(id)
-  // console.log(name)
+  checkKey === arr.length ? answer++ : ''
+  console.log(checkKey)
+  console.log(answer)
 }
 
 let relation = [
