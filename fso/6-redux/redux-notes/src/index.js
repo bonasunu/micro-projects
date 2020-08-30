@@ -1,12 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { createStore, combineReducers } from 'redux'
+import { Provider } from 'react-redux'
+import App from './App'
+import noteReducer from './reducers/noteReducer'
+import filterReducer from './reducers/filterReducer'
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const reducer = combineReducers({
+  notes: noteReducer,
+  filter: filterReducer,
+})
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+const store = createStore(reducer)
+console.log(store.getState())
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+)
