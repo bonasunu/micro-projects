@@ -1,0 +1,15 @@
+{
+  "name": "7-webpack",
+  "version": "1.0.0",
+  "description": "practice webpack",
+  "main": "index.js",
+  "author": "Bona",
+  "license": "MIT",
+  "scripts": {
+	  "build": "webpack --mode=development"
+  },
+  "devDependencies": {
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  }
+}
