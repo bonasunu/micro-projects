@@ -1,0 +1,11 @@
+{
+  "name": "8-apollo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Bonaventura",
+  "license": "MIT",
+  "dependencies": {
+    "apollo-server": "^2.18.2",
+    "graphql": "^15.3.0"
+  }
+}
